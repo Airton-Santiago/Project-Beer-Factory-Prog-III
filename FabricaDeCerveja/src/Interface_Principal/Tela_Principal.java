@@ -1,4 +1,4 @@
-package Interface;
+package Interface_Principal;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -15,7 +15,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
-public class TelaPrincipal extends JFrame {
+public class Tela_Principal extends JFrame {
 
 	private JPanel contentPane;
 
@@ -26,7 +26,7 @@ public class TelaPrincipal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaPrincipal frame = new TelaPrincipal();
+					Tela_Principal frame = new Tela_Principal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +38,7 @@ public class TelaPrincipal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaPrincipal() {
+	public Tela_Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 841, 569);
 		contentPane = new JPanel();
@@ -52,7 +52,7 @@ public class TelaPrincipal extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnFuncionario = new JButton("Funcionario");
-		btnFuncionario.setBounds(60, 224, 89, 23);
+		btnFuncionario.setBounds(60, 224, 100, 23);
 		contentPane.add(btnFuncionario);
 		
 		JButton btnNewButton = new JButton("Cliente");
@@ -60,15 +60,15 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewButton.setBounds(250, 224, 89, 23);
+		btnNewButton.setBounds(250, 224, 100, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Financeiro");
-		btnNewButton_1.setBounds(434, 224, 89, 23);
+		btnNewButton_1.setBounds(434, 224, 100, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Fornecedor");
-		btnNewButton_2.setBounds(648, 224, 89, 23);
+		btnNewButton_2.setBounds(648, 224, 100, 23);
 		contentPane.add(btnNewButton_2);
 		
 		JLabel lblNewLabel_1 = new JLabel("Voltar");
@@ -77,32 +77,32 @@ public class TelaPrincipal extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton button = new JButton("");
-		button.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
+		button.setIcon(new ImageIcon(Tela_Principal.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(761, 497, 54, 23);
 		contentPane.add(button);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/Img/CadastroFuncionario.png")));
+		label.setIcon(new ImageIcon(Tela_Principal.class.getResource("/Img/CadastroFuncionario.png")));
 		label.setBounds(30, 278, 150, 150);
 		contentPane.add(label);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/Img/bem-vindo.png")));
+		lblNewLabel_2.setIcon(new ImageIcon(Tela_Principal.class.getResource("/Img/bem-vindo.png")));
 		lblNewLabel_2.setBounds(20, 11, 527, 119);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/Img/Cliente.png")));
+		label_1.setIcon(new ImageIcon(Tela_Principal.class.getResource("/Img/Cliente.png")));
 		label_1.setBounds(219, 278, 150, 150);
 		contentPane.add(label_1);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/Img/Financeiro.png")));
+		label_2.setIcon(new ImageIcon(Tela_Principal.class.getResource("/Img/Financeiro.png")));
 		label_2.setBounds(404, 278, 150, 150);
 		contentPane.add(label_2);
 		
 		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/Img/Cadastrofornecedores.png")));
+		label_3.setIcon(new ImageIcon(Tela_Principal.class.getResource("/Img/Cadastrofornecedores.png")));
 		label_3.setBounds(618, 278, 150, 150);
 		contentPane.add(label_3);
 	}
