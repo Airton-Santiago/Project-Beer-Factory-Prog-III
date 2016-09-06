@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Interface_Funcionario.Funcionario_Principal;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -52,6 +55,14 @@ public class Tela_Principal extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnFuncionario = new JButton("Funcionario");
+		btnFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Funcionario_Principal obj=new Funcionario_Principal();
+				obj.setVisible(true);
+			  	dispose();
+
+			}
+		});
 		btnFuncionario.setBounds(60, 224, 100, 23);
 		contentPane.add(btnFuncionario);
 		
