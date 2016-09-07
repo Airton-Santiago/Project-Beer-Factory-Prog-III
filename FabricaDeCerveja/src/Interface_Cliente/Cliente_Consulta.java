@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Cliente_Consulta extends JFrame {
 
@@ -77,6 +79,13 @@ public class Cliente_Consulta extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cliente_Principal obj=new Cliente_Principal ();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		button.setIcon(new ImageIcon(Cliente_Consulta.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(738, 484, 46, 23);
 		contentPane.add(button);

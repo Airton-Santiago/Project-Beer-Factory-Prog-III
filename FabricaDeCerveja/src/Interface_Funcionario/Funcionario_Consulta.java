@@ -12,6 +12,9 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Funcionario_Consulta extends JFrame {
 
@@ -72,5 +75,21 @@ public class Funcionario_Consulta extends JFrame {
 		JButton btnConsulta = new JButton("Consulta");
 		btnConsulta.setBounds(413, 99, 89, 23);
 		contentPane.add(btnConsulta);
+		
+		JLabel lblNewLabel_1 = new JLabel("Voltar ");
+		lblNewLabel_1.setBounds(701, 501, 46, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				    Funcionario_Principal obj=new Funcionario_Principal ();
+					obj.setVisible(true);
+				  	dispose();
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(Funcionario_Consulta.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
+		btnNewButton.setBounds(740, 497, 59, 23);
+		contentPane.add(btnNewButton);
 	}
 }

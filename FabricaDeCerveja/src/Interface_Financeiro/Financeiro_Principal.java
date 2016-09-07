@@ -1,4 +1,4 @@
-package Interface_Funcionario;
+package Interface_Financeiro;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -6,14 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Interface_Principal.Tela_Principal;
+
 import javax.swing.JLabel;
-import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Funcionario_Listar extends JFrame {
+public class Financeiro_Principal extends JFrame {
 
 	private JPanel contentPane;
 
@@ -24,7 +26,7 @@ public class Funcionario_Listar extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Funcionario_Listar frame = new Funcionario_Listar();
+					Financeiro_Principal frame = new Financeiro_Principal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +38,7 @@ public class Funcionario_Listar extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Funcionario_Listar() {
+	public Financeiro_Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 841, 569);
 		contentPane = new JPanel();
@@ -44,25 +46,20 @@ public class Funcionario_Listar extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Todos funcionarios cadastrados");
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 15));
-		lblNewLabel.setBounds(22, 67, 295, 14);
-		contentPane.add(lblNewLabel);
-		
 		JLabel lblVoltar = new JLabel("Voltar");
-		lblVoltar.setBounds(708, 490, 46, 14);
+		lblVoltar.setBounds(696, 487, 46, 14);
 		contentPane.add(lblVoltar);
 		
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				   Funcionario_Principal obj=new Funcionario_Principal ();
-				    obj.setVisible(true);
-				  	dispose();
+				Tela_Principal obj=new Tela_Principal ();
+				obj.setVisible(true);
+				dispose();
 			}
 		});
-		button.setIcon(new ImageIcon(Funcionario_Listar.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
-		button.setBounds(743, 486, 56, 23);
+		button.setIcon(new ImageIcon(Financeiro_Principal.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
+		button.setBounds(738, 483, 56, 23);
 		contentPane.add(button);
 	}
 

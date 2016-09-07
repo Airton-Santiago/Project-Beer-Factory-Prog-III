@@ -6,12 +6,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Interface_Funcionario.Funcionario_Cadastro;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Gerente_Cadastro extends JFrame {
 
@@ -89,6 +94,13 @@ public class Gerente_Cadastro extends JFrame {
 		contentPane.add(passwordField);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Tela_Principal obj=new Tela_Principal();
+				obj.setVisible(true);
+			  	dispose();
+			}
+		});
 		btnCadastrar.setBounds(217, 347, 110, 23);
 		contentPane.add(btnCadastrar);
 		

@@ -6,10 +6,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Interface_Principal.Tela_Principal;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Cliente_Principal extends JFrame {
 
@@ -48,18 +53,46 @@ public class Cliente_Principal extends JFrame {
 		contentPane.add(lblEscolhaUmaOpo);
 		
 		JButton btnCadastrarCliente = new JButton("Cadastrar cliente");
+		btnCadastrarCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cliente_Cadastro obj=new Cliente_Cadastro ();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		btnCadastrarCliente.setBounds(69, 62, 210, 23);
 		contentPane.add(btnCadastrarCliente);
 		
 		JButton btnNewButton = new JButton("Listar clientes cadastrados");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cliente_Listagem obj=new Cliente_Listagem () ;
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton.setBounds(69, 278, 210, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Excluir cliente");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cliente_Exclusao obj=new Cliente_Exclusao();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_1.setBounds(544, 62, 210, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Consultar cliente");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cliente_Consulta obj=new Cliente_Consulta();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_2.setBounds(544, 278, 210, 23);
 		contentPane.add(btnNewButton_2);
 		
@@ -89,6 +122,13 @@ public class Cliente_Principal extends JFrame {
 		contentPane.add(lblVoltar);
 		
 		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Tela_Principal obj=new Tela_Principal ();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		button.setIcon(new ImageIcon(Cliente_Principal.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(757, 497, 46, 23);
 		contentPane.add(button);

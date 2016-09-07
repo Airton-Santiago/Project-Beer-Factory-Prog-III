@@ -7,6 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Interface_Cliente.Cliente_Principal;
+import Interface_Financeiro.Financeiro_Principal;
+import Interface_Fornecedor.Fornecedor_Principal;
+import Interface_Funcionario.Funcionario_Cadastro;
 import Interface_Funcionario.Funcionario_Principal;
 
 import javax.swing.JLabel;
@@ -69,16 +73,33 @@ public class Tela_Principal extends JFrame {
 		JButton btnNewButton = new JButton("Cliente");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				    Cliente_Principal obj=new Cliente_Principal ();
+					obj.setVisible(true);
+				  	dispose();
 			}
 		});
 		btnNewButton.setBounds(250, 224, 100, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Financeiro");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Financeiro_Principal obj=new Financeiro_Principal();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_1.setBounds(434, 224, 100, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Fornecedor");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Fornecedor_Principal obj=new Fornecedor_Principal();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_2.setBounds(648, 224, 100, 23);
 		contentPane.add(btnNewButton_2);
 		
@@ -88,6 +109,13 @@ public class Tela_Principal extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Gerente_Login obj=new Gerente_Login();
+				obj.setVisible(true);
+			  	dispose();
+			}
+		});
 		button.setIcon(new ImageIcon(Tela_Principal.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(761, 497, 54, 23);
 		contentPane.add(button);

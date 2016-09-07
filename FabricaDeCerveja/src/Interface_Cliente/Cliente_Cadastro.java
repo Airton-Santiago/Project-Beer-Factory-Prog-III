@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Cliente_Cadastro extends JFrame {
 
@@ -79,10 +81,17 @@ public class Cliente_Cadastro extends JFrame {
 		textField_2.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
-		btnNewButton.setBounds(256, 326, 89, 23);
+		btnNewButton.setBounds(236, 326, 101, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cliente_Principal obj=new Cliente_Principal ();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		btnVoltar.setBounds(347, 326, 89, 23);
 		contentPane.add(btnVoltar);
 		

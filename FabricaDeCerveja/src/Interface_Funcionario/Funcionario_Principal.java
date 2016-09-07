@@ -66,14 +66,35 @@ public class Funcionario_Principal extends JFrame {
 		contentPane.add(btnCadastrarFuncionario);
 		
 		JButton btnExcluirFuncionario = new JButton("Excluir funcionario");
+		btnExcluirFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Funcionario_Excluir obj=new Funcionario_Excluir ();
+					obj.setVisible(true);
+				  	dispose();
+			}
+		});
 		btnExcluirFuncionario.setBounds(557, 78, 210, 23);
 		contentPane.add(btnExcluirFuncionario);
 		
 		JButton btnListarFuncionariosCadastrado = new JButton("Listar funcionarios cadastrados");
+		btnListarFuncionariosCadastrado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Funcionario_Listar obj=new Funcionario_Listar ();
+				obj.setVisible(true);
+			  	dispose();
+			}
+		});
 		btnListarFuncionariosCadastrado.setBounds(74, 303, 210, 23);
 		contentPane.add(btnListarFuncionariosCadastrado);
 		
 		JButton btnConsultarFuncionario = new JButton("Consultar funcionario");
+		btnConsultarFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Funcionario_Consulta obj=new Funcionario_Consulta ();
+				obj.setVisible(true);
+				  	dispose();
+			}
+		});
 		btnConsultarFuncionario.setBounds(557, 303, 210, 23);
 		contentPane.add(btnConsultarFuncionario);
 		

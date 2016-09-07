@@ -6,12 +6,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Interface_Funcionario.Funcionario_Cadastro;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Gerente_Login extends JFrame {
 
@@ -74,11 +79,23 @@ public class Gerente_Login extends JFrame {
 		contentPane.add(passwordField);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setBounds(239, 348, 57, 23);
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Tela_Principal obj=new Tela_Principal();
+				obj.setVisible(true);
+			  	dispose();
+			}
+		});
+		btnLogin.setBounds(196, 348, 79, 23);
 		contentPane.add(btnLogin);
 		
 		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(306, 348, 57, 23);
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnSair.setBounds(285, 348, 79, 23);
 		contentPane.add(btnSair);
 		
 		JLabel label = new JLabel("");

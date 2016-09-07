@@ -81,6 +81,13 @@ public class Cliente_Exclusao extends JFrame {
 		contentPane.add(btnExcluir);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cliente_Principal obj=new Cliente_Principal ();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		btnVoltar.setBounds(348, 275, 76, 23);
 		contentPane.add(btnVoltar);
 		

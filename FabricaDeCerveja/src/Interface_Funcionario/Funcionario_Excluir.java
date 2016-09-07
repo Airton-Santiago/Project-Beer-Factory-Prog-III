@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Funcionario_Excluir extends JFrame {
 
@@ -73,6 +75,13 @@ public class Funcionario_Excluir extends JFrame {
 		contentPane.add(btnExcluir);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				    Funcionario_Principal obj=new Funcionario_Principal ();
+					obj.setVisible(true);
+				  	dispose();
+			}
+		});
 		btnVoltar.setBounds(389, 289, 89, 23);
 		contentPane.add(btnVoltar);
 		

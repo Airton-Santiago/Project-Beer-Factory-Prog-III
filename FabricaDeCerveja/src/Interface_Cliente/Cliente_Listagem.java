@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Cliente_Listagem extends JFrame {
 
@@ -52,6 +54,13 @@ public class Cliente_Listagem extends JFrame {
 		contentPane.add(lblVoltar);
 		
 		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cliente_Principal obj=new Cliente_Principal ();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		button.setIcon(new ImageIcon(Cliente_Listagem.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(754, 497, 49, 23);
 		contentPane.add(button);
