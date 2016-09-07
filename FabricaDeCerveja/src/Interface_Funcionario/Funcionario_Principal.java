@@ -69,7 +69,7 @@ public class Funcionario_Principal extends JFrame {
 		btnExcluirFuncionario.setBounds(557, 78, 210, 23);
 		contentPane.add(btnExcluirFuncionario);
 		
-		JButton btnListarFuncionariosCadastrado = new JButton("Listar funcionarios cadastrado");
+		JButton btnListarFuncionariosCadastrado = new JButton("Listar funcionarios cadastrados");
 		btnListarFuncionariosCadastrado.setBounds(74, 303, 210, 23);
 		contentPane.add(btnListarFuncionariosCadastrado);
 		

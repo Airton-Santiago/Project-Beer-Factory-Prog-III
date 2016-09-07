@@ -1,4 +1,4 @@
-package Interface_Cliente;
+package Interface_Funcionario;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -6,17 +6,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JSpinner;
 import javax.swing.JLabel;
-import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JProgressBar;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.Font;
 import javax.swing.ImageIcon;
 
-public class Cliente_Exclusao extends JFrame {
+public class Funcionario_Excluir extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -29,7 +25,7 @@ public class Cliente_Exclusao extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Cliente_Exclusao frame = new Cliente_Exclusao();
+					Funcionario_Excluir frame = new Funcionario_Excluir();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +37,7 @@ public class Cliente_Exclusao extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Cliente_Exclusao() {
+	public Funcionario_Excluir() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 841, 569);
 		contentPane = new JPanel();
@@ -49,44 +45,41 @@ public class Cliente_Exclusao extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblExcluirClienteDo = new JLabel("Excluir cliente do banco de dados");
-		lblExcluirClienteDo.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
-		lblExcluirClienteDo.setBounds(24, 78, 281, 52);
-		contentPane.add(lblExcluirClienteDo);
+		JLabel lblExcluirFuncionarioCadastrado = new JLabel("Excluir funcionario cadastrado");
+		lblExcluirFuncionarioCadastrado.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
+		lblExcluirFuncionarioCadastrado.setBounds(41, 99, 282, 14);
+		contentPane.add(lblExcluirFuncionarioCadastrado);
 		
-		JLabel lblNome = new JLabel("Nome: ");
-		lblNome.setBounds(198, 222, 46, 14);
-		contentPane.add(lblNome);
-		
-		JLabel lblNewLabel = new JLabel("CNPJ:");
-		lblNewLabel.setBounds(198, 247, 46, 14);
+		JLabel lblNewLabel = new JLabel("Nome: ");
+		lblNewLabel.setBounds(205, 228, 46, 14);
 		contentPane.add(lblNewLabel);
 		
+		JLabel lblCpf = new JLabel("CPF: ");
+		lblCpf.setBounds(205, 261, 46, 14);
+		contentPane.add(lblCpf);
+		
 		textField = new JTextField();
-		textField.setBounds(239, 219, 185, 20);
+		textField.setBounds(248, 225, 230, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(239, 244, 185, 20);
+		textField_1.setBounds(248, 258, 230, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnExcluir.setBounds(262, 275, 76, 23);
+		btnExcluir.setBounds(298, 289, 89, 23);
 		contentPane.add(btnExcluir);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(348, 275, 76, 23);
+		btnVoltar.setBounds(389, 289, 89, 23);
 		contentPane.add(btnVoltar);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(Cliente_Exclusao.class.getResource("/com/sun/javafx/scene/control/skin/caspian/dialog-error@2x.png")));
-		lblNewLabel_1.setBounds(534, 202, 96, 96);
-		contentPane.add(lblNewLabel_1);
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(Funcionario_Excluir.class.getResource("/com/sun/javafx/scene/control/skin/caspian/dialog-error@2x.png")));
+		label.setBounds(574, 228, 96, 96);
+		contentPane.add(label);
 	}
+
 }
