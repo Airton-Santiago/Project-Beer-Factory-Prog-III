@@ -2,21 +2,18 @@ package Repositorio;
 
 import Beans.Funcionario;
 
-public interface IRepositorioFuncionario <T, ID> {
+public interface IRepositorioFuncionario<T, ID> {
 
-		
-		void cadastrar (T entity);
+	void cadastrar(T entity);
 
-		T procurar(ID chave);
+	T procurar(ID chave);
 
-		void atualizar(T entity);
+	void atualizar(T entity);
 
-		void remover(ID chave);
+	void remover(ID chave);
 
-		Object procurar(String cpf);
+	Object procurar(String cpf);
 
-		void atualizar(Funcionario funcionario);
+	void atualizar(Funcionario funcionario);
 
-		
-	}
-
+}
