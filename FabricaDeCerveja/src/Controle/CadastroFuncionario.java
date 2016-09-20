@@ -2,11 +2,11 @@ package Controle;
 
 import Beans.Funcionario;
 import Repositorio.IFuncionario;
-import Repositorio.IRepositorioFuncionario;
+
 
 public class CadastroFuncionario implements IFuncionario {
 
-	private IRepositorioFuncionario repositorio;
+	private IFuncionario repositorio;
 
 	@Override
 	public void cadastrar(Funcionario funcionario) {
