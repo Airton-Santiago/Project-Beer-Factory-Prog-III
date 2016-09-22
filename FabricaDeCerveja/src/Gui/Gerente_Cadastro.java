@@ -31,6 +31,20 @@ public class Gerente_Cadastro extends JFrame {
 				try {
 					Gerente_Cadastro frame = new Gerente_Cadastro();
 					frame.setVisible(true);
+					
+					Gerente g = new Gerente();
+					g.setNumero(Integer.parserInt(jTextFieldNumero.getText()));
+					g.setNome(jTextFielNome.getText();
+					g.setCpf(jTextFielCpf.getText();
+					g.setEndereco(jTextFielEndereco.getText();
+					IFachada fachada = new Fachada();
+					fachada.cadastrarGerente(g);
+					JOptionPane.showMessageDialog(rootPane, "Gerente cadastrado com sucesso");
+					jTextFieldNumero.setText("");
+					jTextFieldNome.setText("");
+					jTextFieldCpf.setText("");
+					jTextFieldEndereco.setText("");
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

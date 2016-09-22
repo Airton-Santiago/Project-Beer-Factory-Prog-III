@@ -29,6 +29,22 @@ public class Cliente_Consulta extends JFrame {
 				try {
 					Cliente_Consulta frame = new Cliente_Consulta();
 					frame.setVisible(true);
+					
+					Cliente c = new Cliente();
+					if (jTextFieldCpf.getText().trim().equals("") == false){
+					c.setCpf(Integer.parseInt(jTextFieldCpf.getText()));
+					}
+					c.setNome(jTextFieldNome.getText());
+					IFachada fachada = new Fachada
+					this.procurarCliente = fachada;
+					procurarCliente(c);
+					DefaultTableModel modelo = new DefaultTableModel;
+					modelo.setColumnIdentifiers(new String[] {"Cpf" , "Nome"});
+					for (Cliente c : procurarCliente) {
+					modelo.addRow(new String[]{{c.getCpf() + "", c.getNome()});
+					}
+					jtableResultadoPesquisa.setModel(modelo);
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

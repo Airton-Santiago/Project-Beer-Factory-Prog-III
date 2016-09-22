@@ -29,6 +29,20 @@ public class Funcionario_Cadastro extends JFrame {
 				try {
 					Funcionario_Cadastro frame = new Funcionario_Cadastro();
 					frame.setVisible(true);
+					
+					Funcionario f = new Funcionario();
+					f.setSalario(Double.parserdouble(jTextFieldSalario.getText()));
+					f.setNome(jTextFielNome.getText();
+					f.setCpf(jTextFielCpf.getText();
+					f.setEndereco(jTextFielEndereco.getText();
+					IFachada fachada = new Fachada();
+					fachada.cadastrarFuncionario(f);
+					JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso");
+					jTextFieldSalario.setText("");
+					jTextFieldNome.setText("");
+					jTextFieldCpf.setText("");
+					jTextFieldEndereco.setText("");
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

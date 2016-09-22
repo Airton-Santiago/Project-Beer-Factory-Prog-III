@@ -30,6 +30,20 @@ public class Cliente_Cadastro extends JFrame {
 				try {
 					Cliente_Cadastro frame = new Cliente_Cadastro();
 					frame.setVisible(true);
+					
+					Cliente c = new Cliente();
+					c.setNumero(Integer.parserInt(jTextFieldNumero.getText()));
+					c.setNome(jTextFielNome.getText();
+					c.setCnpj(jTextFielCnpj.getText();
+					c.setEndereco(jTextFielEndereco.getText();
+					IFachada fachada = new Fachada();
+					fachada.cadastrarCliente(c);
+					JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso");
+					jTextFieldNumero.setText("");
+					jTextFieldNome.setText("");
+					jTextFieldCnpj.setText("");
+					jTextFieldEndereco.setText("");
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
