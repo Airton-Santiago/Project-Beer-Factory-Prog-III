@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Beans.Cliente;
+
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;

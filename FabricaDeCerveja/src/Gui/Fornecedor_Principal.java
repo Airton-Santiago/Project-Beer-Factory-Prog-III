@@ -50,10 +50,24 @@ public class Fornecedor_Principal extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnCadastrarFornecedor = new JButton("Cadastrar fornecedor");
+		btnCadastrarFornecedor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Fornecedor_Cadastro obj=new Fornecedor_Cadastro() ;
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		btnCadastrarFornecedor.setBounds(107, 188, 198, 23);
 		contentPane.add(btnCadastrarFornecedor);
 		
 		JButton btnConsultarFornecedor = new JButton("Consultar fornecedor");
+		btnConsultarFornecedor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Fornecedor_Consulta obj=new Fornecedor_Consulta() ;
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		btnConsultarFornecedor.setBounds(510, 188, 198, 23);
 		contentPane.add(btnConsultarFornecedor);
 		

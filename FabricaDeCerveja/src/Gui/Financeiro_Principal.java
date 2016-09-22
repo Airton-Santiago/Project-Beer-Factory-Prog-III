@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class Financeiro_Principal extends JFrame {
 
@@ -58,6 +59,32 @@ public class Financeiro_Principal extends JFrame {
 		button.setIcon(new ImageIcon(Financeiro_Principal.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(738, 483, 56, 23);
 		contentPane.add(button);
+		
+		JLabel lblEscolhaUmaNova = new JLabel("Escolha uma nova op\u00E7\u00E3o para financeiro.");
+		lblEscolhaUmaNova.setFont(new Font("Trebuchet MS", Font.PLAIN, 15));
+		lblEscolhaUmaNova.setBounds(10, 37, 311, 23);
+		contentPane.add(lblEscolhaUmaNova);
+		
+		JButton btnVendas = new JButton("Vendas");
+		btnVendas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Venda_Principal obj=new Venda_Principal() ;
+				obj.setVisible(true);
+				dispose();
+			}
+		});
+		btnVendas.setBounds(546, 191, 95, 23);
+		contentPane.add(btnVendas);
+		
+		JButton btnEstoque = new JButton("Estoque");
+		btnEstoque.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Estoque_Principal obj=new Estoque_Principal();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
+		btnEstoque.setBounds(179, 191, 95, 23);
+		contentPane.add(btnEstoque);
 	}
-
 }
