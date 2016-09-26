@@ -31,21 +31,7 @@ public class Funcionario_Consulta extends JFrame {
 				try {
 					Funcionario_Consulta frame = new Funcionario_Consulta();
 					frame.setVisible(true);
-					
-					Funcionario f = new Funcionario();
-					if (jTextFieldCpf.getText().trim().equals("") == false){
-					f.setCpf(Integer.parseInt(jTextFieldCpf.getText()));
-					}
-					f.setNome(jTextFieldNome.getText());
-					IFachada fachada = new Fachada
-					this.procurarFuncionario = fachada;
-					procurarFuncionario(f);
-					DefaultTableModel modelo = new DefaultTableModel;
-					modelo.setColumnIdentifiers(new String[] {"Cpf" , "Nome"});
-					for (Funcionario f : procurarFuncionario) {
-					modelo.addRow(new String[]{{c.getCpf() + "", c.getNome()});
-					}
-					jtableResultadoPesquisa.setModel(modelo);
+				
 
 				} catch (Exception e) {
 					e.printStackTrace();

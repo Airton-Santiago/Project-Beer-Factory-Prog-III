@@ -18,9 +18,10 @@ public class Fachada implements IFachada {
 			fachada = new Fachada();
 		}
 		return fachada;
+	
 	}
 
-	private Fachada() {
+	public Fachada() {
 		this.cadastroCliente = new CadastroCliente();
 		this.cadastroFuncionario = new CadastroFuncionario();
 		this.cadastroFornecedor = new CadastroFornecedor();

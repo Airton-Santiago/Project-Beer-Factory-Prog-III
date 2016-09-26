@@ -8,9 +8,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Beans.Cliente;
+import Fachada.Fachada;
+import Fachada.IFachada;
 
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -19,10 +23,11 @@ import java.awt.event.ActionEvent;
 
 public class Cliente_Cadastro extends JFrame {
 
+	protected static final String String = null;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private static JTextField textField;
+	private static JTextField textField_1;
+	private static JTextField textField_2;
 
 	/**
 	 * Launch the application.
@@ -34,18 +39,19 @@ public class Cliente_Cadastro extends JFrame {
 					Cliente_Cadastro frame = new Cliente_Cadastro();
 					frame.setVisible(true);
 					
-					Cliente c = new Cliente();
-					c.setNumero(Integer.parserInt(jTextFieldNumero.getText()));
-					c.setNome(jTextFielNome.getText();
-					c.setCnpj(jTextFielCnpj.getText();
-					c.setEndereco(jTextFielEndereco.getText();
+					Cliente cliente = new Cliente(null, null, 0) ;
+					cliente.setNome(textField.getText());
+					cliente.setCpf(textField_1.getText());
+					cliente.setEndereco(textField_2.getText());
+					
 					IFachada fachada = new Fachada();
-					fachada.cadastrarCliente(c);
-					JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso");
-					jTextFieldNumero.setText("");
-					jTextFieldNome.setText("");
-					jTextFieldCnpj.setText("");
-					jTextFieldEndereco.setText("");
+					fachada.cadastrarCliente(cliente);
+					
+					JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+					
+
+					
+
 
 				} catch (Exception e) {
 					e.printStackTrace();

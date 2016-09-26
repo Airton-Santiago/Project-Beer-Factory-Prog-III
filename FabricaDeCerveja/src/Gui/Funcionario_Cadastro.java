@@ -6,7 +6,14 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Beans.Cliente;
+import Beans.Funcionario;
+import Fachada.Fachada;
+import Fachada.IFachada;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -16,8 +23,8 @@ import java.awt.event.ActionEvent;
 public class Funcionario_Cadastro extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private static JTextField textField;
+	private static JTextField textField_1;
 	private JTextField textField_2;
 
 	/**
@@ -30,22 +37,24 @@ public class Funcionario_Cadastro extends JFrame {
 					Funcionario_Cadastro frame = new Funcionario_Cadastro();
 					frame.setVisible(true);
 					
-					Funcionario f = new Funcionario();
-					f.setSalario(Double.parserdouble(jTextFieldSalario.getText()));
-					f.setNome(jTextFielNome.getText();
-					f.setCpf(jTextFielCpf.getText();
-					f.setEndereco(jTextFielEndereco.getText();
+					Funcionario funcionario = new Funcionario (null, null, null, 0);
+					funcionario.setNome(textField.getText());
+					funcionario.setCpf(textField_1.getText());
+					funcionario.setEndereco(textField_2());
+					
 					IFachada fachada = new Fachada();
-					fachada.cadastrarFuncionario(f);
-					JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso");
-					jTextFieldSalario.setText("");
-					jTextFieldNome.setText("");
-					jTextFieldCpf.setText("");
-					jTextFieldEndereco.setText("");
+					fachada.cadastrarFuncionario(funcionario);
+					JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!");
+					
 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
+
+			private String textField_2() {
+				// TODO Auto-generated method stub
+				return null;
 			}
 		});
 	}

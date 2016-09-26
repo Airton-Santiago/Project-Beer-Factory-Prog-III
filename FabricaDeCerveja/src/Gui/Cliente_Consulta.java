@@ -6,6 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import Beans.Cliente;
+import Fachada.Fachada;
+import Fachada.IFachada;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -17,7 +23,7 @@ import java.awt.event.ActionEvent;
 public class Cliente_Consulta extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private static JTextField textField;
 	private JTextField textField_1;
 
 	/**
@@ -27,23 +33,7 @@ public class Cliente_Consulta extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Cliente_Consulta frame = new Cliente_Consulta();
-					frame.setVisible(true);
-					
-					Cliente c = new Cliente();
-					if (jTextFieldCpf.getText().trim().equals("") == false){
-					c.setCpf(Integer.parseInt(jTextFieldCpf.getText()));
-					}
-					c.setNome(jTextFieldNome.getText());
-					IFachada fachada = new Fachada
-					this.procurarCliente = fachada;
-					procurarCliente(c);
-					DefaultTableModel modelo = new DefaultTableModel;
-					modelo.setColumnIdentifiers(new String[] {"Cpf" , "Nome"});
-					for (Cliente c : procurarCliente) {
-					modelo.addRow(new String[]{{c.getCpf() + "", c.getNome()});
-					}
-					jtableResultadoPesquisa.setModel(modelo);
+				
 
 				} catch (Exception e) {
 					e.printStackTrace();

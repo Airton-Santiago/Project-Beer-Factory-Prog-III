@@ -6,7 +6,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Beans.Gerente;
+import Fachada.Fachada;
+import Fachada.IFachada;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -18,7 +24,7 @@ import java.awt.event.ActionEvent;
 public class Gerente_Cadastro extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private static JTextField textField;
 	private JTextField textField_1;
 	private JPasswordField passwordField;
 
@@ -32,18 +38,15 @@ public class Gerente_Cadastro extends JFrame {
 					Gerente_Cadastro frame = new Gerente_Cadastro();
 					frame.setVisible(true);
 					
-					Gerente g = new Gerente();
-					g.setNumero(Integer.parserInt(jTextFieldNumero.getText()));
-					g.setNome(jTextFielNome.getText();
-					g.setCpf(jTextFielCpf.getText();
-					g.setEndereco(jTextFielEndereco.getText();
+					Gerente gerente = new Gerente(null,null,0,null);
+					gerente.setNome(textField.getText());
+					
 					IFachada fachada = new Fachada();
-					fachada.cadastrarGerente(g);
-					JOptionPane.showMessageDialog(rootPane, "Gerente cadastrado com sucesso");
-					jTextFieldNumero.setText("");
-					jTextFieldNome.setText("");
-					jTextFieldCpf.setText("");
-					jTextFieldEndereco.setText("");
+					fachada.cadastrarGerente(gerente);
+					
+					JOptionPane.showMessageDialog(null, "Gerente cadastrado com sucesso!");
+				
+
 
 				} catch (Exception e) {
 					e.printStackTrace();
