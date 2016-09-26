@@ -6,7 +6,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Beans.Fornecedor;
+import Fachada.Fachada;
+import Fachada.IFachada;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -16,11 +22,11 @@ import java.awt.event.ActionEvent;
 public class Fornecedor_Cadastro extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private static JTextField textField;
+	private static JTextField textField_1;
+	private static JTextField textField_2;
+	private static JTextField textField_3;
+	private static JTextField textField_4;
 	private JTextField textField_5;
 
 	/**
@@ -32,6 +38,21 @@ public class Fornecedor_Cadastro extends JFrame {
 				try {
 					Fornecedor_Cadastro frame = new Fornecedor_Cadastro();
 					frame.setVisible(true);
+					
+					Fornecedor f = new Fornecedor();
+					f.setNome(textField.getText());
+					f.setCnpj(textField_1.getText());
+					f.setEndereco(textField_2.getText());
+					f.setProduto_fornecido(textField_3.getText());
+					f.setQuantidade_produto(textField_4.getDebugGraphicsOptions());
+					f.setValor_servico(textField_4.getDebugGraphicsOptions());
+					
+					IFachada fachada = new Fachada();
+					fachada.cadastrarFornecedor(f);
+					
+					JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso!");
+
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

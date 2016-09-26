@@ -16,6 +16,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+
+import javax.swing.AbstractButton;
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -31,8 +34,15 @@ public class Cliente_Consulta extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			private Cliente procurarCliente;
+
 			public void run() {
 				try {
+					Cliente_Consulta frame = new Cliente_Consulta();
+					frame.setVisible(true); 
+
+			
+
 				
 
 				} catch (Exception e) {

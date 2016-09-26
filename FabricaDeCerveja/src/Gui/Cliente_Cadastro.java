@@ -1,6 +1,5 @@
 package Gui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,10 +10,8 @@ import Beans.Cliente;
 import Fachada.Fachada;
 import Fachada.IFachada;
 
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -23,6 +20,10 @@ import java.awt.event.ActionEvent;
 
 public class Cliente_Cadastro extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected static final String String = null;
 	private JPanel contentPane;
 	private static JTextField textField;
