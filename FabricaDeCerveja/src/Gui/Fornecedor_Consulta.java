@@ -84,6 +84,10 @@ public class Fornecedor_Consulta extends JFrame {
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//
+				
+				
+				//
 				Fornecedor_Principal obj=new Fornecedor_Principal() ;
 				obj.setVisible(true);
 				dispose();

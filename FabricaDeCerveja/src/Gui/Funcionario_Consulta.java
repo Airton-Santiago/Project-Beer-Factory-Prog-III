@@ -11,6 +11,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import Beans.Funcionario;
+
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
@@ -31,7 +34,10 @@ public class Funcionario_Consulta extends JFrame {
 				try {
 					Funcionario_Consulta frame = new Funcionario_Consulta();
 					frame.setVisible(true);
-				
+				//
+					
+					
+				//
 
 				} catch (Exception e) {
 					e.printStackTrace();

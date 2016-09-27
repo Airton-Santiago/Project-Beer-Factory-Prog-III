@@ -91,6 +91,8 @@ public class Cliente_Consulta extends JFrame {
 		
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
+			private Cliente procurarCliente;
+
 			public void actionPerformed(ActionEvent e) {
 			
 				Cliente_Principal obj=new Cliente_Principal ();
@@ -100,16 +102,20 @@ public class Cliente_Consulta extends JFrame {
 				try{
 					Cliente cliente = new Cliente(null, null, 0);
 					if(textField_1.getText().trim().equals("") == false){
-					}	cliente.setNome(textField.getText());
+					}	cliente.setCpf(textField_1.getText());
+					
 					Fachada fachada = new Fachada();
-					//this.procurarCliente = fachada.procurarCliente(cliente);
+					
+					this.procurarCliente = fachada.procurarCliente(cliente.getCpf());
+					
 					DefaultTableModel modelo = new DefaultTableModel();
 					modelo.setColumnIdentifiers(new String[]{"CPF" , "Nome"});
-					for	(	Cliente c : procurarCliente	)	{
-						modelo.addRow(new String[]{cliente.getCpf()+ " ",cliente.getNome()});
-						
+			
+					for	( Fachada fa : procurarCliente	)	{
+						modelo.addRow(new String[]{cliente.getCpf()+ " ",cliente.getNome()});	
 					}
-					jTableResultadoPesquisa.setModel(modelo);
+					AbstractButton jTableResultadoPesquisa;
+					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
 					} catch (Exception ex){
 					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
 					}
