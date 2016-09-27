@@ -7,6 +7,8 @@ public class Venda extends Pedido {
 	public Venda(double valor, String codigoDoPedido, double valor_pedido) {
       super (codigoDoPedido, valor_pedido);
 		this.valor = valor;
+	
+		
 	}
 }
 	

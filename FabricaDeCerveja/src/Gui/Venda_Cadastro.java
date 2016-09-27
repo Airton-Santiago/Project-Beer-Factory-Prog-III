@@ -132,18 +132,18 @@ public class Venda_Cadastro extends JInternalFrame {
 					IFachada fachada = new Fachada();
 					fachada.cadastrarProduto(v);
 					
+					
+			
+					
+				}	catch (Exception ex){
 					JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
 					
 					textField.setText("");
 					textField_1.setText("");
-			
-					
-				}	catch (Exception ex){
-					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
 				}
 				
 				//
-				dispose();
+				
 			}
 		});
 		btnAdicionar.setBounds(311, 245, 89, 23);

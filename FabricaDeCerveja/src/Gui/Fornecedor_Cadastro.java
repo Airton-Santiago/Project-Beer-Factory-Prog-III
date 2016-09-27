@@ -118,12 +118,9 @@ public class Fornecedor_Cadastro extends JFrame {
 		contentPane.add(textField_5);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setBounds(261, 368, 98, 23);
-		contentPane.add(btnCadastrar);
-		
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.addActionListener(new ActionListener() {
+		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				//nome>cnpj>endereco>produto>qnt>valor
 				try {
 					
@@ -138,31 +135,40 @@ public class Fornecedor_Cadastro extends JFrame {
 					IFachada fachada = new Fachada();
 					fachada.cadastrarFornecedor(fornecedor);
 					
-					JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
 					
+				}	catch (Exception ex){
+					JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
 					textField.setText("");
 					textField_1.setText("");
 					textField_2.setText("");
 					textField_3.setText("");
 					textField_4.setText("");
 					textField_5.setText("");
-					
-				}	catch (Exception ex){
-					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
 				}
 				//
-				Fornecedor_Principal obj=new Fornecedor_Principal() ;
+				
+				
+			}
+		});
+		btnCadastrar.setBounds(261, 368, 98, 23);
+		contentPane.add(btnCadastrar);
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(Fornecedor_Cadastro.class.getResource("/Img/Cadastrofornecedores.png")));
+		label_1.setBounds(541, 226, 150, 150);
+		contentPane.add(label_1);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Fornecedor_Principal obj = new Fornecedor_Principal();
 				obj.setVisible(true);
 				dispose();
 			}
 		});
 		btnVoltar.setBounds(369, 368, 89, 23);
 		contentPane.add(btnVoltar);
-		
-		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(Fornecedor_Cadastro.class.getResource("/Img/Cadastrofornecedores.png")));
-		label_1.setBounds(541, 226, 150, 150);
-		contentPane.add(label_1);
 	}
 
-}
+
+	}
+

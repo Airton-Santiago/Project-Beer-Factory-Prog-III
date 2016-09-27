@@ -55,24 +55,24 @@ public class Gerente_Login extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Efetue o seu login.");
 		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(186, 261, 160, 19);
+		lblNewLabel_1.setBounds(159, 227, 160, 19);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblLogin = new JLabel("Login:");
-		lblLogin.setBounds(186, 295, 46, 14);
+		lblLogin.setBounds(159, 261, 46, 14);
 		contentPane.add(lblLogin);
 		
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setBounds(186, 320, 46, 14);
+		lblSenha.setBounds(159, 286, 46, 14);
 		contentPane.add(lblSenha);
 		
 		textField = new JTextField();
-		textField.setBounds(243, 292, 120, 20);
+		textField.setBounds(216, 258, 120, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(243, 317, 120, 20);
+		passwordField.setBounds(216, 283, 120, 20);
 		contentPane.add(passwordField);
 		
 		JButton btnLogin = new JButton("Login");
@@ -83,7 +83,7 @@ public class Gerente_Login extends JFrame {
 			  	dispose();
 			}
 		});
-		btnLogin.setBounds(196, 348, 79, 23);
+		btnLogin.setBounds(169, 314, 79, 23);
 		contentPane.add(btnLogin);
 		
 		JButton btnSair = new JButton("Sair");
@@ -92,13 +92,29 @@ public class Gerente_Login extends JFrame {
 				dispose();
 			}
 		});
-		btnSair.setBounds(285, 348, 79, 23);
+		btnSair.setBounds(258, 314, 79, 23);
 		contentPane.add(btnSair);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Gerente_Login.class.getResource("/Img/PARE.png")));
 		label.setBounds(475, 221, 167, 150);
 		contentPane.add(label);
+		
+		JLabel lblNewLabel_2 = new JLabel("Ainda n\u00E3o \u00E9 cadastrado?");
+		lblNewLabel_2.setFont(new Font("Verdana", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(87, 379, 226, 33);
+		contentPane.add(lblNewLabel_2);
+		
+		JButton btnCadastrese = new JButton("Cadastre-se");
+		btnCadastrese.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Gerente_Cadastro obj = new Gerente_Cadastro();
+				obj.setVisible(true);
+				dispose();
+				
+			}
+		});
+		btnCadastrese.setBounds(323, 386, 133, 23);
+		contentPane.add(btnCadastrese);
 	}
-
 }

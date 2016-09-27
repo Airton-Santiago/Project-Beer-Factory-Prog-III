@@ -104,20 +104,18 @@ public class Funcionario_Cadastro extends JFrame {
 					IFachada fachada = new Fachada();
 					fachada.cadastrarFuncionario(funcionario);
 					
+					
+					
+				}	catch (Exception ex){
 					JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
 					
 					textField.setText("");
 					textField_1.setText("");
 					textField_2.setText("");
-					
-				}	catch (Exception ex){
-					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
 				}
 				
 				
-				Funcionario_Principal obj=new Funcionario_Principal();
-				obj.setVisible(true);
-			  	dispose();
+				
 			  	
 			}
 		});

@@ -118,5 +118,22 @@ public class Gerente_Cadastro extends JFrame {
 		label.setIcon(new ImageIcon(Gerente_Cadastro.class.getResource("/Img/gerente.png")));
 		label.setBounds(481, 244, 150, 135);
 		contentPane.add(label);
+		
+		JLabel lblVoltar = new JLabel("Voltar ");
+		lblVoltar.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
+		lblVoltar.setBounds(646, 483, 54, 27);
+		contentPane.add(lblVoltar);
+		
+		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Gerente_Login obj = new Gerente_Login();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
+		button.setIcon(new ImageIcon(Gerente_Cadastro.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
+		button.setBounds(696, 480, 55, 30);
+		contentPane.add(button);
 	}
 }

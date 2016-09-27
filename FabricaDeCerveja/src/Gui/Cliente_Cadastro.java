@@ -103,14 +103,14 @@ public class Cliente_Cadastro extends JFrame {
 					IFachada fachada = new Fachada();
 					fachada.cadastrarCliente(cliente);
 					
+					
+					
+				}	catch (Exception ex){
 					JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
 					
 					textField.setText("");
 					textField_1.setText("");
 					textField_2.setText("");
-					
-				}	catch (Exception ex){
-					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
 				}
 			}
 		});
