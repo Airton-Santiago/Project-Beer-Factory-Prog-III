@@ -6,7 +6,15 @@ import java.awt.EventQueue;
 import javax.swing.JInternalFrame;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
+
+import Beans.Funcionario;
+import Beans.Venda;
+import Fachada.Fachada;
+import Fachada.IFachada;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -114,6 +122,27 @@ public class Venda_Cadastro extends JInternalFrame {
 		JButton btnAdicionar = new JButton("Adicionar");
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//
+				try {
+					
+					Venda v = new Venda(0, null, 0) ;
+					v.setNome(textField.getText());
+					v.setCpf(textField_1.getText());
+							
+					IFachada fachada = new Fachada();
+					fachada.cadastrarProduto(v);
+					
+					JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
+					
+					textField.setText("");
+					textField_1.setText("");
+			
+					
+				}	catch (Exception ex){
+					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+				}
+				
+				//
 				dispose();
 			}
 		});

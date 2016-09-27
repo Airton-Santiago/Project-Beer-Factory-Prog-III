@@ -13,6 +13,7 @@ import Fachada.Fachada;
 import Fachada.IFachada;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -34,16 +35,10 @@ public class Cliente_Consulta extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			private Cliente procurarCliente;
-
 			public void run() {
 				try {
 					Cliente_Consulta frame = new Cliente_Consulta();
 					frame.setVisible(true); 
-
-			
-
-				
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -97,11 +92,32 @@ public class Cliente_Consulta extends JFrame {
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
 				Cliente_Principal obj=new Cliente_Principal ();
 				obj.setVisible(true);
 				dispose();
+				//
+				try{
+					Cliente cliente = new Cliente(null, null, 0);
+					if(textField_1.getText().trim().equals("") == false){
+					}	cliente.setNome(textField.getText());
+					Fachada fachada = new Fachada();
+					//this.procurarCliente = fachada.procurarCliente(cliente);
+					DefaultTableModel modelo = new DefaultTableModel();
+					modelo.setColumnIdentifiers(new String[]{"CPF" , "Nome"});
+					for	(	Cliente c : procurarCliente	)	{
+						modelo.addRow(new String[]{cliente.getCpf()+ " ",cliente.getNome()});
+						
+					}
+					jTableResultadoPesquisa.setModel(modelo);
+					} catch (Exception ex){
+					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+					}
+				}
+				
 			}
-		});
+				
+		);
 		button.setIcon(new ImageIcon(Cliente_Consulta.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(738, 484, 46, 23);
 		contentPane.add(button);

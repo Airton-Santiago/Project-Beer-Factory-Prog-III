@@ -6,7 +6,15 @@ import java.awt.EventQueue;
 import javax.swing.JInternalFrame;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
+
+import Beans.Estoque;
+import Beans.Funcionario;
+import Fachada.Fachada;
+import Fachada.IFachada;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -65,6 +73,8 @@ public class Estoque_Cadastro extends JInternalFrame {
 		JButton btnAdicionar = new JButton("Adicionar");
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+			
 				dispose();
 			}
 		});

@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Beans.Fornecedor;
+import Beans.Funcionario;
 import Fachada.Fachada;
 import Fachada.IFachada;
 
@@ -38,20 +39,6 @@ public class Fornecedor_Cadastro extends JFrame {
 				try {
 					Fornecedor_Cadastro frame = new Fornecedor_Cadastro();
 					frame.setVisible(true);
-					
-					Fornecedor f = new Fornecedor();
-					f.setNome(textField.getText());
-					f.setCnpj(textField_1.getText());
-					f.setEndereco(textField_2.getText());
-					f.setProduto_fornecido(textField_3.getText());
-					f.setQuantidade_produto(textField_4.getDebugGraphicsOptions());
-					f.setValor_servico(textField_4.getDebugGraphicsOptions());
-					
-					IFachada fachada = new Fachada();
-					fachada.cadastrarFornecedor(f);
-					
-					JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso!");
-
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -137,6 +124,33 @@ public class Fornecedor_Cadastro extends JFrame {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//nome>cnpj>endereco>produto>qnt>valor
+				try {
+					
+					Fornecedor fornecedor = new Fornecedor(null, null, null, null, 0, 0) ;
+					fornecedor.setNome(textField.getText());
+					fornecedor.setCnpj(textField_1.getText());
+					fornecedor.setEndereco(textField_2.getText());
+					fornecedor.setProduto_fornecido(textField_3.getText());
+					fornecedor.setQuantidade_produto(textField_4.getWidth());
+					fornecedor.setValor_servico(textField_4.getWidth());
+					
+					IFachada fachada = new Fachada();
+					fachada.cadastrarFornecedor(fornecedor);
+					
+					JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
+					
+					textField.setText("");
+					textField_1.setText("");
+					textField_2.setText("");
+					textField_3.setText("");
+					textField_4.setText("");
+					textField_5.setText("");
+					
+				}	catch (Exception ex){
+					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+				}
+				//
 				Fornecedor_Principal obj=new Fornecedor_Principal() ;
 				obj.setVisible(true);
 				dispose();

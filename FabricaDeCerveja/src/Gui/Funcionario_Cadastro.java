@@ -1,13 +1,11 @@
 package Gui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Beans.Cliente;
 import Beans.Funcionario;
 import Fachada.Fachada;
 import Fachada.IFachada;
@@ -22,6 +20,10 @@ import java.awt.event.ActionEvent;
 
 public class Funcionario_Cadastro extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private static JTextField textField;
 	private static JTextField textField_1;
@@ -37,24 +39,10 @@ public class Funcionario_Cadastro extends JFrame {
 					Funcionario_Cadastro frame = new Funcionario_Cadastro();
 					frame.setVisible(true);
 					
-					Funcionario funcionario = new Funcionario (null, null, null, 0);
-					funcionario.setNome(textField.getText());
-					funcionario.setCpf(textField_1.getText());
-					funcionario.setEndereco(textField_2());
-					
-					IFachada fachada = new Fachada();
-					fachada.cadastrarFuncionario(funcionario);
-					JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!");
-					
 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
-
-			private String textField_2() {
-				// TODO Auto-generated method stub
-				return null;
 			}
 		});
 	}
@@ -105,10 +93,32 @@ public class Funcionario_Cadastro extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					
+					Funcionario funcionario = new Funcionario(null, null, null, 0) ;
+					funcionario.setNome(textField.getText());
+					funcionario.setCpf(textField_1.getText());
+					funcionario.setEndereco(textField_2.getText());
+					
+					IFachada fachada = new Fachada();
+					fachada.cadastrarFuncionario(funcionario);
+					
+					JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
+					
+					textField.setText("");
+					textField_1.setText("");
+					textField_2.setText("");
+					
+				}	catch (Exception ex){
+					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+				}
+				
+				
 				Funcionario_Principal obj=new Funcionario_Principal();
 				obj.setVisible(true);
 			  	dispose();
-
+			  	
 			}
 		});
 		btnCadastrar.setBounds(259, 337, 95, 23);
@@ -117,6 +127,7 @@ public class Funcionario_Cadastro extends JFrame {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				Funcionario_Principal obj=new Funcionario_Principal();
 				obj.setVisible(true);
 			  	dispose();

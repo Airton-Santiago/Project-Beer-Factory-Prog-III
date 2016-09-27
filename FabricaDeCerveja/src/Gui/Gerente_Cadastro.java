@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Beans.Cliente;
 import Beans.Gerente;
 import Fachada.Fachada;
 import Fachada.IFachada;
@@ -37,15 +38,6 @@ public class Gerente_Cadastro extends JFrame {
 				try {
 					Gerente_Cadastro frame = new Gerente_Cadastro();
 					frame.setVisible(true);
-					
-					Gerente gerente = new Gerente(null,null,0,null);
-					gerente.setNome(textField.getText());
-					
-					IFachada fachada = new Fachada();
-					fachada.cadastrarGerente(gerente);
-					
-					JOptionPane.showMessageDialog(null, "Gerente cadastrado com sucesso!");
-				
 
 
 				} catch (Exception e) {
@@ -110,6 +102,10 @@ public class Gerente_Cadastro extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//nome login senha
+				
+				
 				Tela_Principal obj=new Tela_Principal();
 				obj.setVisible(true);
 			  	dispose();

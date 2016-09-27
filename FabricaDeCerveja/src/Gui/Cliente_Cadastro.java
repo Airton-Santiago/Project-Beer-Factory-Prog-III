@@ -39,20 +39,6 @@ public class Cliente_Cadastro extends JFrame {
 				try {
 					Cliente_Cadastro frame = new Cliente_Cadastro();
 					frame.setVisible(true);
-					
-					Cliente cliente = new Cliente(null, null, 0) ;
-					cliente.setNome(textField.getText());
-					cliente.setCpf(textField_1.getText());
-					cliente.setEndereco(textField_2.getText());
-					
-					IFachada fachada = new Fachada();
-					fachada.cadastrarCliente(cliente);
-					
-					JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
-					
-
-					
-
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -107,8 +93,25 @@ public class Cliente_Cadastro extends JFrame {
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				try {
+					
+					Cliente cliente = new Cliente(null, null, 0) ;
+					cliente.setNome(textField.getText());
+					cliente.setCpf(textField_1.getText());
+					cliente.setEndereco(textField_2.getText());
+					
+					IFachada fachada = new Fachada();
+					fachada.cadastrarCliente(cliente);
+					
+					JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
+					
+					textField.setText("");
+					textField_1.setText("");
+					textField_2.setText("");
+					
+				}	catch (Exception ex){
+					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+				}
 			}
 		});
 		btnNewButton.setBounds(236, 326, 101, 23);
