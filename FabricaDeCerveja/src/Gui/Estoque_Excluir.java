@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Estoque_Excluir extends JInternalFrame {
 	private JTextField textField;
@@ -66,6 +68,11 @@ public class Estoque_Excluir extends JInternalFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnRemover = new JButton("Remover");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnRemover.setBounds(284, 216, 89, 23);
 		getContentPane().add(btnRemover);
 

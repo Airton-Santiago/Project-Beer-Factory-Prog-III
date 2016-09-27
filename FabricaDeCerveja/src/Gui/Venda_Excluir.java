@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Venda_Excluir extends JInternalFrame {
 	private JTextField textField;
@@ -47,15 +49,18 @@ public class Venda_Excluir extends JInternalFrame {
 		getContentPane().add(lblRemoverVenda);
 		
 		JLabel lblNmeroDoPedido = new JLabel("N\u00FAmero do pedido: ");
-		lblNmeroDoPedido.setBounds(90, 106, 105, 14);
+		lblNmeroDoPedido.setFont(new Font("Verdana", Font.PLAIN, 11));
+		lblNmeroDoPedido.setBounds(90, 106, 117, 14);
 		getContentPane().add(lblNmeroDoPedido);
 		
 		JLabel lblProduto = new JLabel("Produto: ");
-		lblProduto.setBounds(90, 140, 46, 14);
+		lblProduto.setFont(new Font("Verdana", Font.PLAIN, 11));
+		lblProduto.setBounds(90, 140, 69, 14);
 		getContentPane().add(lblProduto);
 		
 		JLabel lblNomeDoCliente = new JLabel("Nome do cliente:");
-		lblNomeDoCliente.setBounds(90, 175, 85, 14);
+		lblNomeDoCliente.setFont(new Font("Verdana", Font.PLAIN, 11));
+		lblNomeDoCliente.setBounds(90, 175, 117, 14);
 		getContentPane().add(lblNomeDoCliente);
 		
 		textField = new JTextField();
@@ -74,6 +79,11 @@ public class Venda_Excluir extends JInternalFrame {
 		textField_2.setColumns(10);
 		
 		JButton btnRemover = new JButton("Remover");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnRemover.setBounds(317, 226, 89, 23);
 		getContentPane().add(btnRemover);
 

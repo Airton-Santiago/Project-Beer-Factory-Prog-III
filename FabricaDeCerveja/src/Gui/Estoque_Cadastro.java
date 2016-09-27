@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Estoque_Cadastro extends JInternalFrame {
 	private JTextField textField;
@@ -61,6 +63,11 @@ public class Estoque_Cadastro extends JInternalFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnAdicionar.setBounds(299, 215, 89, 23);
 		getContentPane().add(btnAdicionar);
 		

@@ -105,6 +105,12 @@ public class Cliente_Cadastro extends JFrame {
 		textField_2.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
 		btnNewButton.setBounds(236, 326, 101, 23);
 		contentPane.add(btnNewButton);
 		

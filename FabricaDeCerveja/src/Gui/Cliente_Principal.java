@@ -46,7 +46,7 @@ public class Cliente_Principal extends JFrame {
 		
 		JLabel lblEscolhaUmaOpo = new JLabel("Escolha uma nova op\u00E7\u00E3o para Cliente");
 		lblEscolhaUmaOpo.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
-		lblEscolhaUmaOpo.setBounds(10, 11, 321, 14);
+		lblEscolhaUmaOpo.setBounds(10, 11, 321, 40);
 		contentPane.add(lblEscolhaUmaOpo);
 		
 		JButton btnCadastrarCliente = new JButton("Cadastrar cliente");
@@ -129,6 +129,11 @@ public class Cliente_Principal extends JFrame {
 		button.setIcon(new ImageIcon(Cliente_Principal.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(757, 497, 46, 23);
 		contentPane.add(button);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Cliente_Principal.class.getResource("/Img/CadastroCliente.png")));
+		lblNewLabel.setBounds(109, 96, 150, 150);
+		contentPane.add(lblNewLabel);
 	}
 
 }

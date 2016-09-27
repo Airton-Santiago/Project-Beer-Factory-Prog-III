@@ -58,7 +58,7 @@ public class Funcionario_Principal extends JFrame {
 			  	dispose();
 			}
 		});
-		btnCadastrarFuncionario.setBounds(74, 78, 210, 23);
+		btnCadastrarFuncionario.setBounds(74, 78, 220, 23);
 		contentPane.add(btnCadastrarFuncionario);
 		
 		JButton btnExcluirFuncionario = new JButton("Excluir funcionario");
@@ -69,7 +69,7 @@ public class Funcionario_Principal extends JFrame {
 				  	dispose();
 			}
 		});
-		btnExcluirFuncionario.setBounds(557, 78, 210, 23);
+		btnExcluirFuncionario.setBounds(557, 78, 220, 23);
 		contentPane.add(btnExcluirFuncionario);
 		
 		JButton btnListarFuncionariosCadastrado = new JButton("Listar funcionarios cadastrados");
@@ -80,7 +80,7 @@ public class Funcionario_Principal extends JFrame {
 			  	dispose();
 			}
 		});
-		btnListarFuncionariosCadastrado.setBounds(74, 303, 210, 23);
+		btnListarFuncionariosCadastrado.setBounds(74, 303, 220, 23);
 		contentPane.add(btnListarFuncionariosCadastrado);
 		
 		JButton btnConsultarFuncionario = new JButton("Consultar funcionario");
@@ -91,7 +91,7 @@ public class Funcionario_Principal extends JFrame {
 				  	dispose();
 			}
 		});
-		btnConsultarFuncionario.setBounds(557, 303, 210, 23);
+		btnConsultarFuncionario.setBounds(557, 303, 220, 23);
 		contentPane.add(btnConsultarFuncionario);
 		
 		JLabel label = new JLabel("");

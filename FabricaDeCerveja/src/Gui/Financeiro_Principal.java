@@ -86,5 +86,15 @@ public class Financeiro_Principal extends JFrame {
 		});
 		btnEstoque.setBounds(179, 191, 95, 23);
 		contentPane.add(btnEstoque);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(Financeiro_Principal.class.getResource("/Img/Estoque.png")));
+		label.setBounds(148, 261, 150, 150);
+		contentPane.add(label);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(Financeiro_Principal.class.getResource("/Img/Vendas.png")));
+		label_1.setBounds(520, 261, 150, 150);
+		contentPane.add(label_1);
 	}
 }

@@ -20,6 +20,7 @@ import javax.swing.UIManager;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Venda_Principal extends JFrame {
 
@@ -77,18 +78,23 @@ public class Venda_Principal extends JFrame {
 		setContentPane(contentPane);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBackground(UIManager.getColor("Button.disabledShadow"));
+		desktopPane.setBackground(new Color(255, 255, 255));
 		contentPane.add(desktopPane, BorderLayout.CENTER);
 		
 		JLabel lblVendasCadastradas = new JLabel("Vendas Cadastradas");
-		lblVendasCadastradas.setFont(new Font("Trebuchet MS", Font.PLAIN, 15));
-		lblVendasCadastradas.setBounds(36, 56, 154, 26);
+		lblVendasCadastradas.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
+		lblVendasCadastradas.setBounds(20, 23, 182, 49);
 		desktopPane.add(lblVendasCadastradas);
 		
 		JLabel lblLucro = new JLabel("Lucro:");
 		lblLucro.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
 		lblLucro.setBounds(20, 462, 46, 14);
 		desktopPane.add(lblLucro);
+		
+		JLabel lblDispesas = new JLabel("Dispesas: ");
+		lblDispesas.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
+		lblDispesas.setBounds(670, 462, 75, 14);
+		desktopPane.add(lblDispesas);
 		mntmRemoverVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Venda_Excluir est = new Venda_Excluir();
@@ -98,7 +104,7 @@ public class Venda_Principal extends JFrame {
 		});
 		mntmNovaVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						Venda_Excluir est = new Venda_Excluir();
+						Venda_Cadastro est = new Venda_Cadastro();
 						desktopPane.add(est);
 						est.setVisible(true);
 					

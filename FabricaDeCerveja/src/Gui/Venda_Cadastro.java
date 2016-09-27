@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Venda_Cadastro extends JInternalFrame {
 	private JTextField textField;
@@ -45,27 +47,32 @@ public class Venda_Cadastro extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblN = new JLabel("N\u00FAmero do pedido:");
-		lblN.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblN.setBounds(94, 72, 132, 14);
+		lblN.setFont(new Font("Verdana", Font.PLAIN, 11));
+		lblN.setBounds(94, 72, 142, 14);
 		getContentPane().add(lblN);
 		
 		JLabel lblProduto = new JLabel("Produto: ");
-		lblProduto.setBounds(94, 97, 46, 14);
+		lblProduto.setFont(new Font("Verdana", Font.PLAIN, 11));
+		lblProduto.setBounds(94, 97, 83, 14);
 		getContentPane().add(lblProduto);
 		
 		JLabel lblQuantidade = new JLabel("Quantidade: ");
+		lblQuantidade.setFont(new Font("Verdana", Font.PLAIN, 11));
 		lblQuantidade.setBounds(94, 122, 83, 14);
 		getContentPane().add(lblQuantidade);
 		
 		JLabel lblNomeDoCliente = new JLabel("Nome do cliente: ");
-		lblNomeDoCliente.setBounds(94, 151, 93, 14);
+		lblNomeDoCliente.setFont(new Font("Verdana", Font.PLAIN, 11));
+		lblNomeDoCliente.setBounds(94, 151, 114, 14);
 		getContentPane().add(lblNomeDoCliente);
 		
 		JLabel lblValorDoPedido = new JLabel("Valor do pedido:");
-		lblValorDoPedido.setBounds(94, 176, 93, 14);
+		lblValorDoPedido.setFont(new Font("Verdana", Font.PLAIN, 11));
+		lblValorDoPedido.setBounds(94, 176, 114, 14);
 		getContentPane().add(lblValorDoPedido);
 		
 		JLabel lblData = new JLabel("Data: ");
+		lblData.setFont(new Font("Verdana", Font.PLAIN, 11));
 		lblData.setBounds(94, 201, 46, 14);
 		getContentPane().add(lblData);
 		
@@ -100,11 +107,16 @@ public class Venda_Cadastro extends JInternalFrame {
 		getContentPane().add(textField_5);
 		
 		JLabel lblAdicionarNovaVenda = new JLabel("Adicionar nova venda");
-		lblAdicionarNovaVenda.setFont(new Font("Trebuchet MS", Font.PLAIN, 14));
+		lblAdicionarNovaVenda.setFont(new Font("Trebuchet MS", Font.PLAIN, 15));
 		lblAdicionarNovaVenda.setBounds(25, 26, 162, 20);
 		getContentPane().add(lblAdicionarNovaVenda);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnAdicionar.setBounds(311, 245, 89, 23);
 		getContentPane().add(btnAdicionar);
 
