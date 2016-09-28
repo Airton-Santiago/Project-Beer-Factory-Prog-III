@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Beans.Estoque;
+import Beans.Funcionario;
 import Fachada.Fachada;
 import Fachada.IFachada;
 
@@ -86,8 +87,20 @@ public class Funcionario_Excluir extends JFrame {
 				    Funcionario_Principal obj=new Funcionario_Principal ();
 					obj.setVisible(true);
 				  	dispose();
-				  	//
-				  
+				  	//nome e cpf
+				  	try{
+						Funcionario funcionario = new Funcionario(null, null, null, 0);
+						if(textField_1.getText().trim().equals("")==false){
+						funcionario.setCpf(textField_1.getText());
+						
+					}
+						Funcionario funcionario = this.listaFuncionario.getSelectedRow();
+						IFachada fachada = new Fachada();
+						fachada.removerFuncionario(f);
+						JOptionPane.showMessageDialog(rootPane, "Funcionario removido do sistema.");
+					} catch(Exception ex) {
+						JOptionPane.showInputDialog(rootPane,ex.getMessage());
+					}
 				  	//
 			}
 		});

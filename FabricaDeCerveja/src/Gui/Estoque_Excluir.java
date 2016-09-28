@@ -4,9 +4,17 @@ import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
 import javax.swing.border.SoftBevelBorder;
+
+import Beans.Cliente;
+import Beans.Estoque;
+import Fachada.Fachada;
+import Fachada.IFachada;
+
 import javax.swing.border.BevelBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -71,8 +79,20 @@ public class Estoque_Excluir extends JInternalFrame {
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				//
-				
+				//id e quantidade
+				try{
+					Estoque estoque = new Estoque(null, 0, null, 0);
+					if(textField_1.getText().trim().equals("")==false){
+					estoque.setCodigoDoPedido(textField_1.getText());
+					
+				}
+					Estoque estoque = this.listaEstoque.getSelectedRow();
+					IFachada fachada = new Fachada();
+					fachada.removerProduto(e);
+					JOptionPane.showMessageDialog(rootPane, "Produto removido do estoque.");
+				} catch(Exception ex) {
+					JOptionPane.showInputDialog(rootPane,ex.getMessage());
+				}
 				//
 			}
 		});

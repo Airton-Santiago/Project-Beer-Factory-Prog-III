@@ -6,7 +6,15 @@ import java.awt.EventQueue;
 import javax.swing.JInternalFrame;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
+
+import Beans.Estoque;
+import Beans.Venda;
+import Fachada.Fachada;
+import Fachada.IFachada;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -82,6 +90,21 @@ public class Venda_Excluir extends JInternalFrame {
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				//Nº Pedido, Produto, Nome do Cliente
+				try{
+					Venda venda = new Venda(0, null, 0);
+					if(textField.getText().trim().equals("")==false){
+					venda.setCodigoDoPedido(textField.getText());
+					
+				}
+					Venda venda = this.listaVenda.getSelectedRow();
+					IFachada fachada = new Fachada();
+					fachada.removerProduto(venda);
+					JOptionPane.showMessageDialog(rootPane, "Venda removida do sistema.");
+				} catch(Exception ex) {
+					JOptionPane.showInputDialog(rootPane,ex.getMessage());
+				}
+				//
 			}
 		});
 		btnRemover.setBounds(317, 226, 89, 23);

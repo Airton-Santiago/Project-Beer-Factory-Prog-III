@@ -101,17 +101,17 @@ public class Fornecedor_Consulta extends JFrame {
 				dispose();
 				//
 				try{
-					//
+					
 					Fornecedor f = new Fornecedor();
 					if(textField_1.getText().trim().equals("")==false){
 					f.setCnpj(textField_1.getText());
 					}
 					f.setNome(textField.getText());
 					IFachada fachada = new Fachada();
-					this.procurarFornecedor = fachada.procurarFornecedor(f);
+					this.listaFornecedor = fachada.procurarFornecedor(f);
 					DefaultTableModel modelo = new DefaultTableModel();
 					modelo.setColumnIdentifiers(new String[]{"CNPJ", "NOME"});
-					for( Fornecedor fornecedor : procurarFornecedor) {
+					for( Fornecedor fornecedor : listaFornecedor) {
 					modelo.addRow(new String[]{fornecedor.getCnpj() + "", fornecedor.getNome()});
 					}
 					AbstractButton jTableResultadoPesquisa;

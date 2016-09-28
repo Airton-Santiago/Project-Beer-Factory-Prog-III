@@ -7,6 +7,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 
+import Beans.Cliente;
 import Beans.Funcionario;
 import Beans.Venda;
 import Fachada.Fachada;
@@ -122,26 +123,29 @@ public class Venda_Cadastro extends JInternalFrame {
 		JButton btnAdicionar = new JButton("Adicionar");
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//
-				try {
+				//Nº PEDIDO, PRODUTO, QUANTIDADE, NOME CLIENTE, VALOR PEDIDO, DATA
+try {
 					
-					Venda v = new Venda(0, null, 0) ;
-					v.setNome(textField.getText());
-					v.setCpf(textField_1.getText());
-							
+					Venda venda = new Venda(0, null, 0) ;
+					venda.setCodigoDoPedido(textField.getText());
+					venda.setValor_pedido(Integer.parseInt(textField_4.getText()));
+					
+					
 					IFachada fachada = new Fachada();
-					fachada.cadastrarProduto(v);
+					fachada.cadastrarProduto(venda);
 					
 					
-			
 					
 				}	catch (Exception ex){
-					JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
+					JOptionPane.showMessageDialog(rootPane, "Venda cadastrado com sucesso!");
 					
 					textField.setText("");
 					textField_1.setText("");
+					textField_2.setText("");
+					textField_3.setText("");
+					textField_4.setText("");
+					textField_5.setText("");
 				}
-				
 				//
 				
 			}

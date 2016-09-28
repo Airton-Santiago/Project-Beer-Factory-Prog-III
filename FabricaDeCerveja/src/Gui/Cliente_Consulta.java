@@ -102,25 +102,21 @@ public class Cliente_Consulta extends JFrame {
 				try{
 					//
 					Cliente c = new Cliente(null, null, 0);
-					if(textField_1.getText().trim().equals("")==true){
+					if(textField_1.getText().trim().equals("")==false){
 					c.setCpf(textField_1.getText());
 					c.setNome(textField.getText());
 					}
-					else {
-						JOptionPane.showMessageDialog(rootPane, "Cliente não encontrado");
-					}
 					
-					//IFachada fachada = new Fachada();
-					//this.procurarCliente = fachada.procurarCliente(c);
+					IFachada fachada = new Fachada();
+					this.listaCliente = fachada.procurarCliente(c);
 					
 					DefaultTableModel modelo = new DefaultTableModel();
 					modelo.setColumnIdentifiers(new String[]{"CPF", "NOME"});
-					
-					//for( Cliente cliente : procurarCliente) {
-					//modelo.addRow(new String[]{cliente.getCpf() + "", cliente.getNome()});
-					//}
-					//AbstractButton jTableResultadoPesquisa;
-					//jTableResultadoPesquisa.setModel((ButtonModel) modelo);
+					for( Cliente cliente : listaCliente) {
+					modelo.addRow(new String[]{cliente.getCpf() + "", cliente.getNome()});
+					}
+					AbstractButton jTableResultadoPesquisa;
+					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
 					} catch (Exception ex) {
 						JOptionPane.showMessageDialog(rootPane, ex.getMessage());
 					}

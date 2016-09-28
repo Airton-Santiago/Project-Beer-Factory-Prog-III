@@ -65,7 +65,7 @@ public class Cliente_Exclusao extends JFrame {
 		lblNome.setBounds(198, 222, 46, 14);
 		contentPane.add(lblNome);
 		
-		JLabel lblNewLabel = new JLabel("CNPJ:");
+		JLabel lblNewLabel = new JLabel("CPF:");
 		lblNewLabel.setBounds(198, 247, 46, 14);
 		contentPane.add(lblNewLabel);
 		
@@ -100,7 +100,7 @@ public class Cliente_Exclusao extends JFrame {
 					c.setCpf(textField_1.getText());
 					c.setNome(textField.getText());
 				}
-					Cliente c = this.listaCliente.get(jTableResultadoPesquisa.getSelectedRow());
+					Cliente c = this.listaCliente.getSelectedRow();
 					IFachada fachada = new Fachada();
 					fachada.removerCliente(c);
 					JOptionPane.showMessageDialog(rootPane, "Cliente removido com sucesso.");

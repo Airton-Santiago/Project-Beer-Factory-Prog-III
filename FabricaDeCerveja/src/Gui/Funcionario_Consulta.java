@@ -106,10 +106,10 @@ public class Funcionario_Consulta extends JFrame {
 					}
 					
 					IFachada fachada = new Fachada();
-					this.procurarFuncionario = fachada.procurarFuncionario(f);
+					this.listaFuncionario = fachada.procurarFuncionario(f);
 					DefaultTableModel modelo = new DefaultTableModel();
 					modelo.setColumnIdentifiers(new String[]{"CPF", "NOME"});
-					for( Funcionario funcionario : procurarFuncionario) {
+					for( Funcionario funcionario : listaFuncionario) {
 					modelo.addRow(new String[]{funcionario.getCpf() + "", funcionario.getNome()});
 					}
 					AbstractButton jTableResultadoPesquisa;
