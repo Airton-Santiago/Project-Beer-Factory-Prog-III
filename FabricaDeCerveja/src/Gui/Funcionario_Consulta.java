@@ -7,14 +7,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import Beans.Fornecedor;
 import Beans.Funcionario;
+import Fachada.Fachada;
+import Fachada.IFachada;
 
 import java.awt.Font;
+
+import javax.swing.AbstractButton;
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -34,10 +41,6 @@ public class Funcionario_Consulta extends JFrame {
 				try {
 					Funcionario_Consulta frame = new Funcionario_Consulta();
 					frame.setVisible(true);
-				//
-					
-					
-				//
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -94,7 +97,29 @@ public class Funcionario_Consulta extends JFrame {
 				    Funcionario_Principal obj=new Funcionario_Principal ();
 					obj.setVisible(true);
 				  	dispose();
+				  	//
+				  	try{
+				  	Funcionario f = new Funcionario(null, null, null, 0);
+					if(textField_1.getText().trim().equals("")==false){
+					f.setCpf(textField_1.getText());
+					f.setNome(textField.getText());
+					}
+					
+					IFachada fachada = new Fachada();
+					this.procurarFuncionario = fachada.procurarFuncionario(f);
+					DefaultTableModel modelo = new DefaultTableModel();
+					modelo.setColumnIdentifiers(new String[]{"CPF", "NOME"});
+					for( Funcionario funcionario : procurarFuncionario) {
+					modelo.addRow(new String[]{funcionario.getCpf() + "", funcionario.getNome()});
+					}
+					AbstractButton jTableResultadoPesquisa;
+					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
+					} catch(Exception ex){
+						JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+					}
 			}
+				//
+			
 		});
 		btnNewButton.setIcon(new ImageIcon(Funcionario_Consulta.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		btnNewButton.setBounds(740, 497, 59, 23);

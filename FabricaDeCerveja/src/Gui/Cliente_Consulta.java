@@ -67,7 +67,7 @@ public class Cliente_Consulta extends JFrame {
 		lblNome.setBounds(78, 71, 46, 14);
 		contentPane.add(lblNome);
 		
-		JLabel lblNewLabel = new JLabel("CNPJ:");
+		JLabel lblNewLabel = new JLabel("CPF:");
 		lblNewLabel.setBounds(78, 115, 46, 14);
 		contentPane.add(lblNewLabel);
 		
@@ -91,35 +91,43 @@ public class Cliente_Consulta extends JFrame {
 		
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
-			private Cliente procurarCliente;
-
+			
 			public void actionPerformed(ActionEvent e) {
 			
 				Cliente_Principal obj=new Cliente_Principal ();
 				obj.setVisible(true);
 				dispose();
 				//
+				
 				try{
-					Cliente cliente = new Cliente(null, null, 0);
-					if(textField_1.getText().trim().equals("") == false){
-					}	cliente.setCpf(textField_1.getText());
+					//
+					Cliente c = new Cliente(null, null, 0);
+					if(textField_1.getText().trim().equals("")==true){
+					c.setCpf(textField_1.getText());
+					c.setNome(textField.getText());
+					}
+					else {
+						JOptionPane.showMessageDialog(rootPane, "Cliente não encontrado");
+					}
 					
-					Fachada fachada = new Fachada();
-					
-					this.procurarCliente = fachada.procurarCliente(cliente.getCpf());
+					//IFachada fachada = new Fachada();
+					//this.procurarCliente = fachada.procurarCliente(c);
 					
 					DefaultTableModel modelo = new DefaultTableModel();
-					modelo.setColumnIdentifiers(new String[]{"CPF" , "Nome"});
-			
-					for	( Fachada fa : procurarCliente	)	{
-						modelo.addRow(new String[]{cliente.getCpf()+ " ",cliente.getNome()});	
-					}
-					AbstractButton jTableResultadoPesquisa;
-					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
-					} catch (Exception ex){
-					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+					modelo.setColumnIdentifiers(new String[]{"CPF", "NOME"});
+					
+					//for( Cliente cliente : procurarCliente) {
+					//modelo.addRow(new String[]{cliente.getCpf() + "", cliente.getNome()});
+					//}
+					//AbstractButton jTableResultadoPesquisa;
+					//jTableResultadoPesquisa.setModel((ButtonModel) modelo);
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(rootPane, ex.getMessage());
 					}
 				}
+				
+				//
+				
 				
 			}
 				

@@ -6,8 +6,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Beans.Cliente;
+import Fachada.Fachada;
+import Fachada.IFachada;
+
 import javax.swing.JSpinner;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -86,6 +93,22 @@ public class Cliente_Exclusao extends JFrame {
 				Cliente_Principal obj=new Cliente_Principal ();
 				obj.setVisible(true);
 				dispose();
+				//
+				try{
+					Cliente c = new Cliente(null, null, 0);
+					if(textField_1.getText().trim().equals("")==false){
+					c.setCpf(textField_1.getText());
+					c.setNome(textField.getText());
+				}
+					Cliente c = this.listaCliente.get(jTableResultadoPesquisa.getSelectedRow());
+					IFachada fachada = new Fachada();
+					fachada.removerCliente(c);
+					JOptionPane.showMessageDialog(rootPane, "Cliente removido com sucesso.");
+				} catch(Exception ex) {
+					JOptionPane.showInputDialog(rootPane,ex.getMessage());
+				}
+				
+				//
 			}
 		});
 		btnVoltar.setBounds(348, 275, 76, 23);

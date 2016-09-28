@@ -6,7 +6,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Beans.Estoque;
+import Fachada.Fachada;
+import Fachada.IFachada;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -80,6 +86,9 @@ public class Funcionario_Excluir extends JFrame {
 				    Funcionario_Principal obj=new Funcionario_Principal ();
 					obj.setVisible(true);
 				  	dispose();
+				  	//
+				  
+				  	//
 			}
 		});
 		btnVoltar.setBounds(389, 289, 89, 23);

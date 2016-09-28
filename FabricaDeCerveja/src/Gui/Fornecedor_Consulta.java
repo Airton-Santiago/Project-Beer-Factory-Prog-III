@@ -6,13 +6,23 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import Beans.Cliente;
+import Beans.Fornecedor;
+import Fachada.Fachada;
+import Fachada.IFachada;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -83,14 +93,34 @@ public class Fornecedor_Consulta extends JFrame {
 		
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
-				//
-				
-				
-				//
+			
 				Fornecedor_Principal obj=new Fornecedor_Principal() ;
 				obj.setVisible(true);
 				dispose();
+				//
+				try{
+					//
+					Fornecedor f = new Fornecedor();
+					if(textField_1.getText().trim().equals("")==false){
+					f.setCnpj(textField_1.getText());
+					}
+					f.setNome(textField.getText());
+					IFachada fachada = new Fachada();
+					this.procurarFornecedor = fachada.procurarFornecedor(f);
+					DefaultTableModel modelo = new DefaultTableModel();
+					modelo.setColumnIdentifiers(new String[]{"CNPJ", "NOME"});
+					for( Fornecedor fornecedor : procurarFornecedor) {
+					modelo.addRow(new String[]{fornecedor.getCnpj() + "", fornecedor.getNome()});
+					}
+					AbstractButton jTableResultadoPesquisa;
+					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+					}
+				
+				//
 			}
 		});
 		button.setIcon(new ImageIcon(Fornecedor_Consulta.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));

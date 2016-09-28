@@ -71,6 +71,9 @@ public class Estoque_Excluir extends JInternalFrame {
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				//
+				
+				//
 			}
 		});
 		btnRemover.setBounds(284, 216, 89, 23);
