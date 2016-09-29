@@ -14,4 +14,8 @@ public interface IProduto {
 	void atualizar(Produtos produto);
 
 	void remover(String codigoProduto);
+
+	void remover(Venda venda);
+
+	void remover(IProduto cadastroProduto);
 }

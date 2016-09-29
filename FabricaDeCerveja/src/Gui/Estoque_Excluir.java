@@ -23,6 +23,7 @@ public class Estoque_Excluir extends JInternalFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private List<Estoque> listaEstoque;
+	private Estoque_Excluir listaEstoque1;
 
 	/**
 	 * Launch the application.
@@ -85,14 +86,19 @@ public class Estoque_Excluir extends JInternalFrame {
 					estoque.setCodigoDoPedido(textField_1.getText());
 					
 				}
-					Estoque estoque = listaEstoque.getSelectedRow();
-					Fachada fachada;
+					Estoque estoque1 = listaEstoque1();
+					Fachada fachada = null;
 					fachada.removerProduto(e);
 					JOptionPane.showMessageDialog(rootPane, "Produto removido do estoque.");
 				} catch(Exception ex) {
 					JOptionPane.showInputDialog(rootPane,ex.getMessage());
 				}
 				//
+			}
+
+			private Estoque listaEstoque1() {
+				// TODO Auto-generated method stub
+				return null;
 			}
 		});
 		btnRemover.setBounds(284, 216, 89, 23);

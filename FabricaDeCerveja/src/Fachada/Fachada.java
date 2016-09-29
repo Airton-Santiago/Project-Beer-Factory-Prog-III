@@ -13,7 +13,7 @@ public class Fachada implements IFachada {
 	private IFuncionario cadastroFuncionario;
 	private IGerente cadastroGerente;
 	private IProduto cadastroProduto;
-	private IFornecedor cadastroFornecedor;
+	private static IFornecedor cadastroFornecedor;
 	private static IFachada fachada;
 
 	public static IFachada getInstance() {
@@ -44,9 +44,8 @@ public class Fachada implements IFachada {
 		cadastroFuncionario.cadastrar(funcionario);
 	}
 
-	@Override
-	public void cadastrarFornecedor(Fornecedor fornecedor) {
-		cadastroFornecedor.cadastrar(fornecedor);
+	public static void cadastrarFornecedor(Fornecedor fornecedor) {
+		IFornecedor.cadastrar(fornecedor);
 
 	}
 
@@ -190,9 +189,14 @@ public class Fachada implements IFachada {
 		return (List<Funcionario>) cadastroCliente.procurar(f);
 	}
 
-	@Override
 	public static void removerFuncionario(Funcionario f) {
-		cadastroFonercedor.remover(f);
+		cadastroFornecedor.remover(f);
+		
+	}
+
+	@Override
+	public void removerProduto(Venda venda) {
+		cadastroProduto.remover(cadastroProduto);
 		
 	}
 

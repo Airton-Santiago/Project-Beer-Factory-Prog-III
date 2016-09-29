@@ -132,8 +132,7 @@ public class Fornecedor_Cadastro extends JFrame {
 					fornecedor.setQuantidade_produto(textField_4.getWidth());
 					fornecedor.setValor_servico(textField_4.getWidth());
 					
-					IFachada fachada = new Fachada();
-					fachada.cadastrarFornecedor(fornecedor);
+					Fachada.cadastrarFornecedor(fornecedor);
 					
 					
 				}	catch (Exception ex){

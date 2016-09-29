@@ -10,7 +10,9 @@ public interface IFachada {
 
 	void cadastrarFuncionario(Funcionario funcionario);
 
-	void cadastrarFornecedor(Fornecedor fornecedor);
+	static void cadastrarFornecedor(Fornecedor fornecedor) {
+		return;
+	}
 
 	void cadastrarGerente(Gerente gerente);
 
@@ -48,11 +50,12 @@ public interface IFachada {
 
 	void removerFornecedor(String cpf);
 
-	void removerProduto(ActionEvent e);
+	void removerProduto(Venda venda);
 
 	void removerProduto(String codigoProduto);
 	
-	void removerFuncionario (Funcionario f);
+	static void removerFuncionario (Funcionario f) {
+	}
 	
 	static Cliente removerCliente(Cliente c) {
 		return null;
@@ -60,6 +63,8 @@ public interface IFachada {
 	static Funcionario procurarFuncionario(Funcionario f) {
 		return null;
 	}
+
+	void removerProduto(ActionEvent e);
 	
 	
 

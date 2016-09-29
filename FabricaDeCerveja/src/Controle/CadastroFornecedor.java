@@ -1,15 +1,15 @@
 package Controle;
 
 import Beans.Fornecedor;
+import Beans.Funcionario;
 import Repositorio.IFornecedor;
 
 public class CadastroFornecedor implements IFornecedor {
 
 	private IFornecedor repositorio;
 
-	@Override
 	public void cadastrar(Fornecedor fornecedor) {
-		this.repositorio.cadastrar(fornecedor);
+		IFornecedor.cadastrar(fornecedor);
 
 	}
 
@@ -28,6 +28,12 @@ public class CadastroFornecedor implements IFornecedor {
 	public void remover(String cnpj) {
 		this.repositorio.remover(cnpj);
 
+	}
+
+	@Override
+	public void remover(Funcionario f) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -41,4 +41,16 @@ public class CadastroProduto implements IProduto {
 		
 	}
 
+	@Override
+	public void remover(Venda venda) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remover(IProduto cadastroProduto) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

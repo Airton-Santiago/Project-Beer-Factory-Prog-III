@@ -2,30 +2,29 @@ package Gui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 
-import Beans.Estoque;
 import Beans.Venda;
 import Fachada.Fachada;
 import Fachada.IFachada;
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Venda_Excluir extends JInternalFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-
+    private List listaVenda;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -97,14 +96,19 @@ public class Venda_Excluir extends JInternalFrame {
 					venda.setCodigoDoPedido(textField.getText());
 					
 				}
-					Venda venda2 = this.listaVenda.getSelectedRow();
+					Venda venda2 = listaVenda();
 					IFachada fachada = new Fachada();
-					fachada.removerProduto(venda);
+					fachada.removerProduto(venda2);
 					JOptionPane.showMessageDialog(rootPane, "Venda removida do sistema.");
 				} catch(Exception ex) {
-					JOptionPane.showInputDialog(rootPane,ex.getMessage());
+					
 				}
 				//
+			}
+
+			private Venda listaVenda() {
+				// TODO Auto-generated method stub
+				return null;
 			}
 		});
 		btnRemover.setBounds(317, 226, 89, 23);

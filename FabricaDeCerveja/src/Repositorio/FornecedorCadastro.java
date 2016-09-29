@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Beans.Fornecedor;
+import Beans.Funcionario;
 
 public class FornecedorCadastro<f> implements IFornecedor {
 
@@ -14,7 +15,6 @@ public class FornecedorCadastro<f> implements IFornecedor {
 		repositorio = new ArrayList<>();
 	}
 
-	@Override
 	public void cadastrar(Fornecedor fornecedor) {
 		repositorio.add(fornecedor);
 
@@ -52,5 +52,11 @@ public class FornecedorCadastro<f> implements IFornecedor {
 
 		}
 
+	}
+
+	@Override
+	public void remover(Funcionario f) {
+		// TODO Auto-generated method stub
+		
 	}
 }

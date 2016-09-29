@@ -6,6 +6,7 @@ import java.util.List;
 
 import Beans.Cliente;
 import Beans.Fornecedor;
+import Beans.Funcionario;
 
 public class ClienteCadastro<c> implements ICliente {
 
@@ -96,6 +97,12 @@ public class ClienteCadastro<c> implements ICliente {
 			}
 		}
 		
+		return null;
+	}
+
+	@Override
+	public Cliente procurar(Funcionario f) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

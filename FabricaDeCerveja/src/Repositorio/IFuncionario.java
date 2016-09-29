@@ -12,4 +12,6 @@ public interface IFuncionario {
 
 	void remover(Funcionario f);
 
+	void remover(String cpf);
+
 }

@@ -40,7 +40,7 @@ public class Cliente_Exclusao extends JFrame {
 				try {
 					Cliente_Exclusao frame = new Cliente_Exclusao();
 					frame.setVisible(true);
-				} catch (Exception e) {
+				} catch (NullPointerException e) {
 					e.printStackTrace();
 				}
 			}
@@ -106,8 +106,8 @@ public class Cliente_Exclusao extends JFrame {
 					
 					Fachada.removerCliente(c);
 					JOptionPane.showMessageDialog(rootPane, "Cliente removido com sucesso.");
-				} catch(Exception ex) {
-					JOptionPane.showInputDialog(rootPane,ex.getMessage());
+				} catch(NullPointerException e1) {
+					JOptionPane.showInputDialog(rootPane,e1.getMessage());
 				}
 				
 				//

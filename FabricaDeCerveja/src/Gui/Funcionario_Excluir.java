@@ -96,7 +96,7 @@ public class Funcionario_Excluir extends JFrame {
 						funcionario.setCpf(textField_1.getText());
 						
 					}
-						Funcionario f = ((Object) listaFuncionario).getSelectedRow();
+						Funcionario f = listaFuncionario();
 						Fachada fachada;
 						Fachada.removerFuncionario(f);
 						JOptionPane.showMessageDialog(rootPane, "Funcionario removido do sistema.");
@@ -104,6 +104,11 @@ public class Funcionario_Excluir extends JFrame {
 						JOptionPane.showInputDialog(rootPane,ex.getMessage());
 					}
 				  	//
+			}
+
+			private Funcionario listaFuncionario() {
+				// TODO Auto-generated method stub
+				return null;
 			}
 		});
 		btnVoltar.setBounds(389, 289, 89, 23);

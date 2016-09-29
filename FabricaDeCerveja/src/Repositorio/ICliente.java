@@ -25,5 +25,7 @@ public interface ICliente {
 
 	List<Fornecedor> procurar(Fornecedor f);
 
+	Cliente procurar(String cpf);
+
 
 }

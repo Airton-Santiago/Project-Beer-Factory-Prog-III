@@ -5,6 +5,7 @@ import java.util.List;
 
 import Beans.Cliente;
 import Beans.Fornecedor;
+import Beans.Funcionario;
 import Repositorio.ICliente;
 
 public class CadastroCliente implements ICliente {
@@ -54,6 +55,12 @@ public class CadastroCliente implements ICliente {
 	public List<Fornecedor> procurar(Fornecedor f) {
 		
 		return (List<Fornecedor>)repositorio.procurar(f);
+	}
+
+	@Override
+	public Cliente procurar(Funcionario f) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

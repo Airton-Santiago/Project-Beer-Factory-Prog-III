@@ -9,6 +9,7 @@ import Beans.Venda;
 public class ProdutoCadastro<p> implements IProduto {
 
 	private List<Produtos> repositorio;
+	private List<Venda> repositorio1;
 	private Object produto;
 
 	public ProdutoCadastro() {
@@ -57,7 +58,32 @@ public class ProdutoCadastro<p> implements IProduto {
 
 	@Override
 	public void cadastrar(Venda venda) {
-		// TODO Auto-generated method stub
+		repositorio1.add(venda);
+		
+	}
+
+	@Override
+	public void remover(Venda venda) {
+		for (int i = 0; i <= this.repositorio.size(); i++) {
+			Venda v = this.repositorio1.get(i);
+			if (v.equals(venda)) {
+				repositorio.remove(produto);
+			}
+
+		}
+		
+	}
+
+	@Override
+	public void remover(IProduto cadastroProduto) {
+		for (int i = 0; i <= this.repositorio.size(); i++) {
+			Produtos p = this.repositorio.get(i);
+			if (p.equals(cadastroProduto)) {
+				repositorio.remove(produto);
+			}
+
+		}
+
 		
 	}
 

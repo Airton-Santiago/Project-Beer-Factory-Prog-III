@@ -32,4 +32,10 @@ public class CadastroFuncionario implements IFuncionario {
 
 	}
 
+	@Override
+	public void remover(Funcionario f) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
