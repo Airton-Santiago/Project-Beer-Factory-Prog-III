@@ -6,11 +6,12 @@ import java.util.List;
 import Beans.Cliente;
 import Beans.Fornecedor;
 import Beans.Funcionario;
+import Repositorio.ClienteCadastro;
 import Repositorio.ICliente;
 
 public class CadastroCliente implements ICliente {
 
-	private ICliente repositorio;
+	private ClienteCadastro repositorio;
 
 	@Override
 	public void cadastrar(Cliente cliente) {
@@ -36,7 +37,7 @@ public class CadastroCliente implements ICliente {
 
 	@Override
 	public Cliente procurar(Cliente c) {
-		return (Cliente)repositorio.procurar(c);
+		return repositorio.procurar(c);
 	}
 
 	@Override

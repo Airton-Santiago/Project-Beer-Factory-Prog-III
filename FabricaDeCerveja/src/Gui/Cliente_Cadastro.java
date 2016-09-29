@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Beans.Cliente;
+import Controle.CadastroCliente;
 import Fachada.Fachada;
 import Fachada.IFachada;
 
@@ -100,13 +101,16 @@ public class Cliente_Cadastro extends JFrame {
 					cliente.setCpf(textField_1.getText());
 					cliente.setEndereco(textField_2.getText());
 					
-					IFachada fachada = new Fachada();
+					CadastroCliente cc = new CadastroCliente();
+					
+					Fachada fachada = new Fachada();
+					
 					fachada.cadastrarCliente(cliente);
 					
-					
-					
+						JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
+
 				}	catch (Exception ex){
-					JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
+					JOptionPane.showMessageDialog(rootPane, "Erro de cadastro!");
 					
 					textField.setText("");
 					textField_1.setText("");

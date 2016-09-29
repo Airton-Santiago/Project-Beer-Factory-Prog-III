@@ -85,6 +85,42 @@ public class Cliente_Consulta extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Consultar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try{
+					//
+					Cliente c = new Cliente();
+					//if(textField_1.getText().trim().equals("")==false){
+					c.setCpf(textField_1.getText());
+					
+					//}
+
+
+				    c = Fachada.procurarCliente(c);
+				    if (c==null){
+				    	JOptionPane.showMessageDialog(null, "N existe");
+				    }
+				    else{
+				    	JOptionPane.showMessageDialog(null, "Nome: "+c.getNome());
+				    }
+					
+					/*DefaultTableModel modelo = new DefaultTableModel();
+					modelo.setColumnIdentifiers(new String[]{"CPF", "NOME"});
+					for( Cliente cliente : listaCliente) {
+					modelo.addRow(new String[]{cliente.getCpf() + "", cliente.getNome()});
+					}
+					AbstractButton jTableResultadoPesquisa = null;
+					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
+					*/
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+					
+				
+				
+				
+			
+			}});
 		btnNewButton.setBounds(387, 111, 89, 23);
 		contentPane.add(btnNewButton);
 		
@@ -93,45 +129,6 @@ public class Cliente_Consulta extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton button = new JButton("");
-		button.addActionListener(new ActionListener() {
-			
-
-			public void actionPerformed(ActionEvent e) {
-			
-				Cliente_Principal obj=new Cliente_Principal ();
-				obj.setVisible(true);
-				dispose();
-				//
-				
-				try{
-					//
-					Cliente c = new Cliente();
-					if(textField_1.getText().trim().equals("")==false){
-					c.setCpf(textField_1.getText());
-					c.setNome(textField.getText());
-					}
-
-
-					listaCliente = (List<Cliente>) Fachada.procurarCliente(c);
-					
-					DefaultTableModel modelo = new DefaultTableModel();
-					modelo.setColumnIdentifiers(new String[]{"CPF", "NOME"});
-					for( Cliente cliente : listaCliente) {
-					modelo.addRow(new String[]{cliente.getCpf() + "", cliente.getNome()});
-					}
-					AbstractButton jTableResultadoPesquisa = null;
-					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
-					} catch (Exception ex) {
-						JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-					}
-				}
-				
-				//
-				
-				
-			}
-				
-		);
 		button.setIcon(new ImageIcon(Cliente_Consulta.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(738, 484, 46, 23);
 		contentPane.add(button);

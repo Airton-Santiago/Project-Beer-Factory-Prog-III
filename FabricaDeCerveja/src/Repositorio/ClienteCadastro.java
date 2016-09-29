@@ -60,8 +60,8 @@ public class ClienteCadastro<c> implements ICliente {
 	public Cliente procurar(Cliente c) {
 		for (int i = 0; i < repositorio.size(); i++) {
 			Cliente c1 = repositorio.get(i);
-			if (c.getCpf().equals(c)) {
-				return c;
+			if (c1.getCpf().equals(c.getCpf())) {
+				return c1;
 			}
 		}
 		return null;

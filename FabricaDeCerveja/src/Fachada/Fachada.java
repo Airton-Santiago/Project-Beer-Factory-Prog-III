@@ -9,7 +9,7 @@ import Beans.*;
 
 public class Fachada implements IFachada {
 
-	private static ICliente cadastroCliente;
+	private static ClienteCadastro cadastroCliente;
 	private IFuncionario cadastroFuncionario;
 	private IGerente cadastroGerente;
 	private IProduto cadastroProduto;
@@ -25,7 +25,7 @@ public class Fachada implements IFachada {
 	}
 
 	public Fachada() {
-		this.cadastroCliente = new CadastroCliente();
+		this.cadastroCliente = new ClienteCadastro();
 		this.cadastroFuncionario = new CadastroFuncionario();
 		this.cadastroFornecedor = new CadastroFornecedor();
 		this.cadastroGerente = new CadastroGerente();
