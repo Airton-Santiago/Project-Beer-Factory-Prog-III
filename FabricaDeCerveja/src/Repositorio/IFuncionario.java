@@ -10,6 +10,6 @@ public interface IFuncionario {
 
 	void atualizar(Funcionario funcionario);
 
-	void remover(String cpf);
+	void remover(Funcionario f);
 
 }

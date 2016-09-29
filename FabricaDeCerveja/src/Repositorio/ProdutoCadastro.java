@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Beans.Produtos;
+import Beans.Venda;
 
 public class ProdutoCadastro<p> implements IProduto {
 
@@ -53,4 +54,11 @@ public class ProdutoCadastro<p> implements IProduto {
 		}
 
 	}
+
+	@Override
+	public void cadastrar(Venda venda) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

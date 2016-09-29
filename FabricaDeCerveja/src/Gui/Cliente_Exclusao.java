@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JProgressBar;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
@@ -28,6 +29,7 @@ public class Cliente_Exclusao extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private List<Cliente> listaClientes;
 
 	/**
 	 * Launch the application.
@@ -95,14 +97,14 @@ public class Cliente_Exclusao extends JFrame {
 				dispose();
 				//
 				try{
-					Cliente c = new Cliente(null, null, 0);
+					Cliente c = new Cliente();
 					if(textField_1.getText().trim().equals("")==false){
-					c.setCpf(textField_1.getText());
+					c.setCnpj(textField_1.getText());
 					c.setNome(textField.getText());
+					c.setCpf(textField_1.getText());
 				}
-					Cliente c = this.listaCliente.getSelectedRow();
-					IFachada fachada = new Fachada();
-					fachada.removerCliente(c);
+					
+					Fachada.removerCliente(c);
 					JOptionPane.showMessageDialog(rootPane, "Cliente removido com sucesso.");
 				} catch(Exception ex) {
 					JOptionPane.showInputDialog(rootPane,ex.getMessage());

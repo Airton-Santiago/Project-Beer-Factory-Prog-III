@@ -3,7 +3,7 @@ package Beans;
 public class Pedido {
 
 	private String codigoDoPedido;
-	private double valor_pedido;
+	protected static double valor_pedido;
 
 	public Pedido() {
 

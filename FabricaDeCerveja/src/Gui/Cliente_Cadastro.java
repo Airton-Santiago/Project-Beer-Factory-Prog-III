@@ -95,7 +95,7 @@ public class Cliente_Cadastro extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					
-					Cliente cliente = new Cliente(null, null, 0) ;
+					Cliente cliente = new Cliente() ;
 					cliente.setNome(textField.getText());
 					cliente.setCpf(textField_1.getText());
 					cliente.setEndereco(textField_2.getText());

@@ -1,5 +1,7 @@
 package Fachada;
 
+import java.awt.event.ActionEvent;
+
 import Beans.*;
 
 public interface IFachada {
@@ -12,9 +14,15 @@ public interface IFachada {
 
 	void cadastrarGerente(Gerente gerente);
 
+	void cadastrarProduto(Venda venda);
+	
 	void cadastrarProduto(Produtos produto);
-
+	
 	Cliente procurarCliente(String cpf);
+
+	static Cliente procurarCliente(Cliente c) {
+		return null;
+	}
 
 	Funcionario procurarFuncionario(String cpf);
 
@@ -34,14 +42,25 @@ public interface IFachada {
 
 	void atualizarProduto(Produtos produto);
 
-	void removerCliente(String cpf);
-
 	void removerFuncionario(String cpf);
 
 	void removerGerente(String cpf);
 
 	void removerFornecedor(String cpf);
 
+	void removerProduto(ActionEvent e);
+
 	void removerProduto(String codigoProduto);
+	
+	void removerFuncionario (Funcionario f);
+	
+	static Cliente removerCliente(Cliente c) {
+		return null;
+	}
+	static Funcionario procurarFuncionario(Funcionario f) {
+		return null;
+	}
+	
+	
 
 }

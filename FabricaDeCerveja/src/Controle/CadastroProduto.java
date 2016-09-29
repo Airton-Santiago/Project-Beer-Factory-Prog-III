@@ -1,6 +1,7 @@
 package Controle;
 
 import Beans.Produtos;
+import Beans.Venda;
 import Repositorio.IProduto;
 
 
@@ -32,6 +33,12 @@ public class CadastroProduto implements IProduto {
 
 		this.repositorio.remover(codigoProduto);
 
+	}
+
+	@Override
+	public void cadastrar(Venda venda) {
+		this.repositorio.cadastrar(venda);
+		
 	}
 
 }

@@ -92,12 +92,12 @@ public class Venda_Excluir extends JInternalFrame {
 				dispose();
 				//Nº Pedido, Produto, Nome do Cliente
 				try{
-					Venda venda = new Venda(0, null, 0);
+					Venda venda = new Venda(getAlignmentX(), title, title, title, null, getAlignmentX());
 					if(textField.getText().trim().equals("")==false){
 					venda.setCodigoDoPedido(textField.getText());
 					
 				}
-					Venda venda = this.listaVenda.getSelectedRow();
+					Venda venda2 = this.listaVenda.getSelectedRow();
 					IFachada fachada = new Fachada();
 					fachada.removerProduto(venda);
 					JOptionPane.showMessageDialog(rootPane, "Venda removida do sistema.");

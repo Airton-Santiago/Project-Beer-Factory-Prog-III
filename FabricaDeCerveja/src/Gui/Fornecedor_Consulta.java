@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 import Beans.Cliente;
 import Beans.Fornecedor;
+import Beans.Gerente;
 import Fachada.Fachada;
 import Fachada.IFachada;
 
@@ -25,6 +26,7 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class Fornecedor_Consulta extends JFrame {
@@ -32,6 +34,7 @@ public class Fornecedor_Consulta extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private List<Fornecedor> listaFornecedor;
 
 	/**
 	 * Launch the application.
@@ -107,14 +110,13 @@ public class Fornecedor_Consulta extends JFrame {
 					f.setCnpj(textField_1.getText());
 					}
 					f.setNome(textField.getText());
-					IFachada fachada = new Fachada();
-					this.listaFornecedor = fachada.procurarFornecedor(f);
+					listaFornecedor = Fachada.procurarFornecedor(f);
 					DefaultTableModel modelo = new DefaultTableModel();
 					modelo.setColumnIdentifiers(new String[]{"CNPJ", "NOME"});
 					for( Fornecedor fornecedor : listaFornecedor) {
 					modelo.addRow(new String[]{fornecedor.getCnpj() + "", fornecedor.getNome()});
 					}
-					AbstractButton jTableResultadoPesquisa;
+					AbstractButton jTableResultadoPesquisa = null;
 					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
 					} catch (Exception ex) {
 						JOptionPane.showMessageDialog(rootPane, ex.getMessage());

@@ -24,6 +24,7 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class Funcionario_Consulta extends JFrame {
@@ -31,6 +32,7 @@ public class Funcionario_Consulta extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private List<Funcionario> listaFuncionario;
 
 	/**
 	 * Launch the application.
@@ -105,14 +107,14 @@ public class Funcionario_Consulta extends JFrame {
 					f.setNome(textField.getText());
 					}
 					
-					IFachada fachada = new Fachada();
-					this.listaFuncionario = fachada.procurarFuncionario(f);
+					
+					listaFuncionario = Fachada.procurarFuncionario(f);
 					DefaultTableModel modelo = new DefaultTableModel();
 					modelo.setColumnIdentifiers(new String[]{"CPF", "NOME"});
 					for( Funcionario funcionario : listaFuncionario) {
 					modelo.addRow(new String[]{funcionario.getCpf() + "", funcionario.getNome()});
 					}
-					AbstractButton jTableResultadoPesquisa;
+					AbstractButton jTableResultadoPesquisa = null;
 					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
 					} catch(Exception ex){
 						JOptionPane.showMessageDialog(rootPane, ex.getMessage());

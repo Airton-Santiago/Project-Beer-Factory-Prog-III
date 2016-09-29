@@ -19,6 +19,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class Funcionario_Excluir extends JFrame {
@@ -26,6 +27,7 @@ public class Funcionario_Excluir extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private List<Funcionario> listaFuncionario;
 
 	/**
 	 * Launch the application.
@@ -94,9 +96,9 @@ public class Funcionario_Excluir extends JFrame {
 						funcionario.setCpf(textField_1.getText());
 						
 					}
-						Funcionario funcionario = this.listaFuncionario.getSelectedRow();
-						IFachada fachada = new Fachada();
-						fachada.removerFuncionario(f);
+						Funcionario f = ((Object) listaFuncionario).getSelectedRow();
+						Fachada fachada;
+						Fachada.removerFuncionario(f);
 						JOptionPane.showMessageDialog(rootPane, "Funcionario removido do sistema.");
 					} catch(Exception ex) {
 						JOptionPane.showInputDialog(rootPane,ex.getMessage());

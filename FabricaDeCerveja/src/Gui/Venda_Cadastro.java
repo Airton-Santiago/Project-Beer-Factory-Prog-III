@@ -20,6 +20,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.awt.event.ActionEvent;
 
 public class Venda_Cadastro extends JInternalFrame {
@@ -126,7 +127,7 @@ public class Venda_Cadastro extends JInternalFrame {
 				//Nº PEDIDO, PRODUTO, QUANTIDADE, NOME CLIENTE, VALOR PEDIDO, DATA
 try {
 					
-					Venda venda = new Venda(0, null, 0) ;
+					Venda venda = new Venda(getAlignmentX(), title, title, title, null, getAlignmentX()) ;
 					venda.setCodigoDoPedido(textField.getText());
 					venda.setValor_pedido(Integer.parseInt(textField_4.getText()));
 					

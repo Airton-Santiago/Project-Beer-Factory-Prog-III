@@ -1,12 +1,15 @@
 package Fachada;
-import Beans.Cliente;
 import Controle.*;
 import Repositorio.*;
+
+import java.awt.event.ActionEvent;
+import java.util.List;
+
 import Beans.*;
 
 public class Fachada implements IFachada {
 
-	private ICliente cadastroCliente;
+	private static ICliente cadastroCliente;
 	private IFuncionario cadastroFuncionario;
 	private IGerente cadastroGerente;
 	private IProduto cadastroProduto;
@@ -121,8 +124,7 @@ public class Fachada implements IFachada {
 
 	}
 
-	@Override
-	public void removerCliente(String cpf) {
+	public static void removerCliente(String cpf) {
 		cadastroCliente.remover(cpf);
 
 	}
@@ -151,5 +153,49 @@ public class Fachada implements IFachada {
 
 	}
 
+	public static void removerCliente(Cliente c) {
+		cadastroCliente.remover(c);
+		
+	}
+
+	public static  Cliente procurarCliente(Cliente c) {
+		
+		return cadastroCliente.procurar(c);
+	}
+
+	@Override
+	public void cadastrarProduto(Venda venda) {
+		cadastroProduto.cadastrar(venda);
+		
+	}
+
+	@Override
+	public void removerProduto(ActionEvent e) {
+		cadastroCliente.remover(e);
+		
+	}
+
+	public static List<Fornecedor> procurarFornecedor(Fornecedor f) {
+		
+		      return cadastroCliente.procurar(f);
+	}
+	
+	public static Cliente procurarCliente1(Cliente cliente) {
+		
+	      return cadastroCliente.procurar(cliente);
+}
+
+	public static List<Funcionario> procurarFuncionario(Funcionario f) {
+		
+		return (List<Funcionario>) cadastroCliente.procurar(f);
+	}
+
+	@Override
+	public static void removerFuncionario(Funcionario f) {
+		cadastroFonercedor.remover(f);
+		
+	}
+
+	
 }
 

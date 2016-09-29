@@ -1,9 +1,11 @@
 package Repositorio;
 
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 import Beans.Cliente;
+import Beans.Fornecedor;
 
 public class ClienteCadastro<c> implements ICliente {
 
@@ -52,5 +54,48 @@ public class ClienteCadastro<c> implements ICliente {
 		}
 
 	}
+
+	@Override
+	public Cliente procurar(Cliente c) {
+		for (int i = 0; i < repositorio.size(); i++) {
+			Cliente c1 = repositorio.get(i);
+			if (c.getCpf().equals(c)) {
+				return c;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public void remover(Cliente c) {
+		for (int i = 0; i <= this.repositorio.size(); i++) {
+			Cliente c1 = this.repositorio.get(i);
+			if (c.equals(c)) {
+				repositorio.remove(cliente);
+			}
+
+		}
+	}
+
+	@Override
+	public void remover(ActionEvent e) {
+		for (int i = 0; i <= this.repositorio.size(); i++) {
+			Cliente c1 = this.repositorio.get(i);
+			if (c1.equals(c1)) {
+				repositorio.remove(cliente);
+			}
+		}
+	}
+
+	@Override
+	public List<Fornecedor> procurar(Fornecedor f) {
+		for (int i = 0; i < repositorio.size(); i++) {
+			Cliente f1 = repositorio.get(i);
+			if (f1.getCpf().equals(f1)) {
+				return (List<Fornecedor>) f1;
+			}
+		}
+		
+		return null;
+	}
 }
-	

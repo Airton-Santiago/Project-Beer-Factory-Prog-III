@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import Beans.Cliente;
+import Beans.Fornecedor;
 import Fachada.Fachada;
 import Fachada.IFachada;
 
@@ -22,6 +23,7 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class Cliente_Consulta extends JFrame {
@@ -29,6 +31,7 @@ public class Cliente_Consulta extends JFrame {
 	private JPanel contentPane;
 	private static JTextField textField;
 	private JTextField textField_1;
+	private List<Cliente> listaCliente;
 
 	/**
 	 * Launch the application.
@@ -92,6 +95,7 @@ public class Cliente_Consulta extends JFrame {
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
 			
+
 			public void actionPerformed(ActionEvent e) {
 			
 				Cliente_Principal obj=new Cliente_Principal ();
@@ -101,21 +105,21 @@ public class Cliente_Consulta extends JFrame {
 				
 				try{
 					//
-					Cliente c = new Cliente(null, null, 0);
+					Cliente c = new Cliente();
 					if(textField_1.getText().trim().equals("")==false){
 					c.setCpf(textField_1.getText());
 					c.setNome(textField.getText());
 					}
-					
-					IFachada fachada = new Fachada();
-					this.listaCliente = fachada.procurarCliente(c);
+
+
+					listaCliente = (List<Cliente>) Fachada.procurarCliente(c);
 					
 					DefaultTableModel modelo = new DefaultTableModel();
 					modelo.setColumnIdentifiers(new String[]{"CPF", "NOME"});
 					for( Cliente cliente : listaCliente) {
 					modelo.addRow(new String[]{cliente.getCpf() + "", cliente.getNome()});
 					}
-					AbstractButton jTableResultadoPesquisa;
+					AbstractButton jTableResultadoPesquisa = null;
 					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
 					} catch (Exception ex) {
 						JOptionPane.showMessageDialog(rootPane, ex.getMessage());
