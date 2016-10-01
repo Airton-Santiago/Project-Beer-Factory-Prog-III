@@ -108,6 +108,9 @@ public class Cliente_Cadastro extends JFrame {
 					fachada.cadastrarCliente(cliente);
 					
 						JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
+						textField.setText("");
+						textField_1.setText("");
+						textField_2.setText("");	
 
 				}	catch (Exception ex){
 					JOptionPane.showMessageDialog(rootPane, "Erro de cadastro!");

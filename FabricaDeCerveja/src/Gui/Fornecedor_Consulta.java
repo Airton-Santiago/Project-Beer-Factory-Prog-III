@@ -87,23 +87,9 @@ public class Fornecedor_Consulta extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnConsultar = new JButton("Consultar");
-		btnConsultar.setBounds(338, 112, 89, 23);
-		contentPane.add(btnConsultar);
-		
-		JLabel lblVoltar = new JLabel("Voltar");
-		lblVoltar.setBounds(670, 491, 46, 14);
-		contentPane.add(lblVoltar);
-		
-		JButton button = new JButton("");
-		button.addActionListener(new ActionListener() {
-			
+		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				Fornecedor_Principal obj=new Fornecedor_Principal() ;
-				obj.setVisible(true);
-				dispose();
-				//
-				try{
+try{
 					
 					Fornecedor f = new Fornecedor();
 					if(textField_1.getText().trim().equals("")==false){
@@ -119,10 +105,27 @@ public class Fornecedor_Consulta extends JFrame {
 					AbstractButton jTableResultadoPesquisa = null;
 					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
 					} catch (Exception ex) {
-						JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+						JOptionPane.showMessageDialog(rootPane, "Erro!");
 					}
 				
-				//
+			}
+		});
+		btnConsultar.setBounds(338, 112, 89, 23);
+		contentPane.add(btnConsultar);
+		
+		JLabel lblVoltar = new JLabel("Voltar");
+		lblVoltar.setBounds(670, 491, 46, 14);
+		contentPane.add(lblVoltar);
+		
+		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				Fornecedor_Principal obj=new Fornecedor_Principal() ;
+				obj.setVisible(true);
+				dispose();
+				
 			}
 		});
 		button.setIcon(new ImageIcon(Fornecedor_Consulta.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));

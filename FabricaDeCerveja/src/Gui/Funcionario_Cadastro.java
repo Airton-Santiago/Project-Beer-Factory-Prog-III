@@ -115,7 +115,7 @@ public class Funcionario_Cadastro extends JFrame {
 					JOptionPane.showMessageDialog(rootPane, "Funcionário cadastrado com sucesso!");
 					
 					
-				}	catch (Exception ex){
+				}	catch (Exception e){
 					JOptionPane.showMessageDialog(rootPane, "Erro, não foi possível cadastrar, tente novamente!");
 					
 					textField.setText("");

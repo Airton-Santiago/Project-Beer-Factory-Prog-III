@@ -20,7 +20,6 @@ import Fachada.Fachada;
 import Fachada.IFachada;
 
 public class Estoque_Excluir extends JInternalFrame {
-	private JTextField textField;
 	private JTextField textField_1;
 	private List<Estoque> listaEstoque;
 	private Estoque_Excluir listaEstoque1;
@@ -60,18 +59,8 @@ public class Estoque_Excluir extends JInternalFrame {
 		lblIdProduto.setBounds(113, 118, 85, 14);
 		getContentPane().add(lblIdProduto);
 		
-		JLabel lblQuantidade = new JLabel("Quantidade: ");
-		lblQuantidade.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblQuantidade.setBounds(113, 156, 85, 14);
-		getContentPane().add(lblQuantidade);
-		
-		textField = new JTextField();
-		textField.setBounds(201, 115, 86, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
-		
 		textField_1 = new JTextField();
-		textField_1.setBounds(201, 153, 86, 20);
+		textField_1.setBounds(201, 115, 86, 20);
 		getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -91,7 +80,7 @@ public class Estoque_Excluir extends JInternalFrame {
 					fachada.removerProduto(e);
 					JOptionPane.showMessageDialog(rootPane, "Produto removido do estoque.");
 				} catch(Exception ex) {
-					JOptionPane.showInputDialog(rootPane,ex.getMessage());
+					JOptionPane.showMessageDialog(rootPane,"Erro!");
 				}
 				//
 			}

@@ -31,7 +31,6 @@ import java.awt.event.ActionEvent;
 public class Funcionario_Consulta extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField textField_1;
 	
 
@@ -68,26 +67,36 @@ public class Funcionario_Consulta extends JFrame {
 		lblNewLabel.setBounds(24, 22, 141, 14);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNome = new JLabel("Nome: ");
-		lblNome.setBounds(91, 64, 46, 14);
-		contentPane.add(lblNome);
-		
 		JLabel lblCpf = new JLabel("CPF: ");
-		lblCpf.setBounds(91, 103, 46, 14);
+		lblCpf.setBounds(126, 232, 46, 14);
 		contentPane.add(lblCpf);
 		
-		textField = new JTextField();
-		textField.setBounds(135, 61, 231, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
 		textField_1 = new JTextField();
-		textField_1.setBounds(135, 100, 231, 20);
+		textField_1.setBounds(170, 229, 231, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JButton btnConsulta = new JButton("Consulta");
-		btnConsulta.setBounds(413, 99, 89, 23);
+		btnConsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try{
+			  		
+			  		Funcionario f1 = new Funcionario();
+					f1.setCpf(textField_1.getText());
+					f1 = Fachada.procurarFuncionario(f1);
+					
+					if (f1 == null) {
+						JOptionPane.showMessageDialog(null, "Não existe!");
+					} else {
+						JOptionPane.showMessageDialog(null, "Nome: " + f1.getNome());
+					}
+
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnConsulta.setBounds(312, 283, 89, 23);
 		contentPane.add(btnConsulta);
 		
 		JLabel lblNewLabel_1 = new JLabel("Voltar ");
@@ -100,32 +109,18 @@ public class Funcionario_Consulta extends JFrame {
 				    Funcionario_Principal obj=new Funcionario_Principal ();
 					obj.setVisible(true);
 				  	dispose();
-				  	//
-				  	try{
-				  		
-				  		//
-						Funcionario f1 = new Funcionario();
-						// if(textField_1.getText().trim().equals("")==false){
-						f1.setCpf(textField_1.getText());
-
-						// }
-
-						f1 = Fachada.procurarFuncionario(f1);
-						
-						if (f1 == null) {
-							JOptionPane.showMessageDialog(null, "Não existe!");
-						} else {
-							JOptionPane.showMessageDialog(null, "Nome: " + f1.getNome());
-						}
-
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
+				 
+				  	
 
 				}
 				});
 		btnNewButton.setIcon(new ImageIcon(Funcionario_Consulta.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		btnNewButton.setBounds(740, 497, 59, 23);
 		contentPane.add(btnNewButton);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(Funcionario_Consulta.class.getResource("/Img/consulta.png")));
+		label.setBounds(555, 197, 150, 150);
+		contentPane.add(label);
 	}
 }

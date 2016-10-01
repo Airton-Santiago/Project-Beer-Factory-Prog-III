@@ -28,7 +28,6 @@ import javax.swing.ImageIcon;
 public class Cliente_Exclusao extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField textField_1;
 	private List<Cliente> listaClientes;
 
@@ -64,45 +63,23 @@ public class Cliente_Exclusao extends JFrame {
 		lblExcluirClienteDo.setBounds(24, 78, 281, 52);
 		contentPane.add(lblExcluirClienteDo);
 		
-		JLabel lblNome = new JLabel("Nome: ");
-		lblNome.setBounds(198, 222, 46, 14);
-		contentPane.add(lblNome);
-		
-		JLabel lblNewLabel = new JLabel("CPF:");
-		lblNewLabel.setBounds(198, 247, 46, 14);
+		JLabel lblNewLabel = new JLabel("CNPJ: ");
+		lblNewLabel.setBounds(188, 218, 46, 14);
 		contentPane.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(239, 219, 185, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
 		textField_1 = new JTextField();
-		textField_1.setBounds(239, 244, 185, 20);
+		textField_1.setBounds(229, 215, 185, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnExcluir.setBounds(262, 275, 76, 23);
-		contentPane.add(btnExcluir);
-		
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				Cliente_Principal obj=new Cliente_Principal ();
-				obj.setVisible(true);
-				dispose();
-				//
 				try{
 					Cliente cliente = new Cliente();
 					if(textField_1.getText().trim().equals("")==false){
 					cliente.setCnpj(textField_1.getText());
-					cliente.setNome(textField.getText());
+					
 					cliente.setCpf(textField_1.getText());
 					
 					CadastroCliente cc = new CadastroCliente();
@@ -115,11 +92,25 @@ public class Cliente_Exclusao extends JFrame {
 				} catch(NullPointerException e1) {
 					JOptionPane.showInputDialog(rootPane, "Erro, cliente não foi removido!");
 				}
-				
-				//
 			}
 		});
-		btnVoltar.setBounds(348, 275, 76, 23);
+		btnExcluir.setBounds(239, 246, 76, 23);
+		contentPane.add(btnExcluir);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				Cliente_Principal obj=new Cliente_Principal ();
+				obj.setVisible(true);
+				dispose();
+				
+				
+				
+				
+			}
+		});
+		btnVoltar.setBounds(325, 246, 76, 23);
 		contentPane.add(btnVoltar);
 		
 		JLabel lblNewLabel_1 = new JLabel("");

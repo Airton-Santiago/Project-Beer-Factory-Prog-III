@@ -25,7 +25,6 @@ import java.awt.event.ActionEvent;
 public class Funcionario_Excluir extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField textField_1;
 	private List<Funcionario> listaFuncionario;
 
@@ -61,18 +60,9 @@ public class Funcionario_Excluir extends JFrame {
 		lblExcluirFuncionarioCadastrado.setBounds(41, 99, 282, 14);
 		contentPane.add(lblExcluirFuncionarioCadastrado);
 		
-		JLabel lblNewLabel = new JLabel("Nome: ");
-		lblNewLabel.setBounds(205, 228, 46, 14);
-		contentPane.add(lblNewLabel);
-		
 		JLabel lblCpf = new JLabel("CPF: ");
 		lblCpf.setBounds(205, 261, 46, 14);
 		contentPane.add(lblCpf);
-		
-		textField = new JTextField();
-		textField.setBounds(248, 225, 230, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(248, 258, 230, 20);
@@ -80,6 +70,30 @@ public class Funcionario_Excluir extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			    
+			  	try{
+					Funcionario funcionario = new Funcionario();
+					if(textField_1.getText().trim().equals("")==false){
+					funcionario.setCpf(textField_1.getText());
+					
+				}
+					Funcionario f = listaFuncionario();
+					Fachada fachada;
+					Fachada.removerFuncionario(f);
+					JOptionPane.showMessageDialog(rootPane, "Funcionario removido do sistema.");
+				} catch(Exception ex) {
+					JOptionPane.showMessageDialog(rootPane,"Erro ao excluir!");
+				}
+			  	//
+		}
+
+		private Funcionario listaFuncionario() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	});
 		btnExcluir.setBounds(298, 289, 89, 23);
 		contentPane.add(btnExcluir);
 		
@@ -89,26 +103,6 @@ public class Funcionario_Excluir extends JFrame {
 				    Funcionario_Principal obj=new Funcionario_Principal ();
 					obj.setVisible(true);
 				  	dispose();
-				  	//nome e cpf
-				  	try{
-						Funcionario funcionario = new Funcionario();
-						if(textField_1.getText().trim().equals("")==false){
-						funcionario.setCpf(textField_1.getText());
-						
-					}
-						Funcionario f = listaFuncionario();
-						Fachada fachada;
-						Fachada.removerFuncionario(f);
-						JOptionPane.showMessageDialog(rootPane, "Funcionario removido do sistema.");
-					} catch(Exception ex) {
-						JOptionPane.showInputDialog(rootPane,ex.getMessage());
-					}
-				  	//
-			}
-
-			private Funcionario listaFuncionario() {
-				// TODO Auto-generated method stub
-				return null;
 			}
 		});
 		btnVoltar.setBounds(389, 289, 89, 23);
