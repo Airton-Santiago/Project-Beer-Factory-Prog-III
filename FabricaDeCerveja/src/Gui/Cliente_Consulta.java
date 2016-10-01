@@ -1,6 +1,7 @@
 package Gui;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -32,6 +33,7 @@ public class Cliente_Consulta extends JFrame {
 	private static JTextField textField;
 	private JTextField textField_1;
 	private List<Cliente> listaCliente;
+	private Component btnConsultar;
 
 	/**
 	 * Launch the application.
@@ -41,7 +43,7 @@ public class Cliente_Consulta extends JFrame {
 			public void run() {
 				try {
 					Cliente_Consulta frame = new Cliente_Consulta();
-					frame.setVisible(true); 
+					frame.setVisible(true);
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -60,78 +62,80 @@ public class Cliente_Consulta extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblFiltosDaPesquisa = new JLabel("Filtos da pesquisa");
 		lblFiltosDaPesquisa.setFont(new Font("Trebuchet MS", Font.PLAIN, 13));
 		lblFiltosDaPesquisa.setBounds(26, 32, 158, 14);
 		contentPane.add(lblFiltosDaPesquisa);
-		
+
 		JLabel lblNome = new JLabel("Nome: ");
 		lblNome.setBounds(78, 71, 46, 14);
 		contentPane.add(lblNome);
-		
+
 		JLabel lblNewLabel = new JLabel("CPF:");
 		lblNewLabel.setBounds(78, 115, 46, 14);
 		contentPane.add(lblNewLabel);
-		
+
 		textField = new JTextField();
 		textField.setBounds(120, 68, 225, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+
 		textField_1 = new JTextField();
 		textField_1.setBounds(120, 112, 225, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		
+
 		JButton btnNewButton = new JButton("Consultar");
 		btnNewButton.addActionListener(new ActionListener() {
+			
+		
 			public void actionPerformed(ActionEvent e) {
-				try{
+				JButton btnVoltar = new JButton("Voltar");
+				
+             	try {
 					//
 					Cliente c = new Cliente();
-					//if(textField_1.getText().trim().equals("")==false){
+					// if(textField_1.getText().trim().equals("")==false){
 					c.setCpf(textField_1.getText());
-					
-					//}
 
+					// }
 
-				    c = Fachada.procurarCliente(c);
-				    if (c==null){
-				    	JOptionPane.showMessageDialog(null, "N existe");
-				    }
-				    else{
-				    	JOptionPane.showMessageDialog(null, "Nome: "+c.getNome());
-				    }
-					
-					/*DefaultTableModel modelo = new DefaultTableModel();
-					modelo.setColumnIdentifiers(new String[]{"CPF", "NOME"});
-					for( Cliente cliente : listaCliente) {
-					modelo.addRow(new String[]{cliente.getCpf() + "", cliente.getNome()});
+					c = Fachada.procurarCliente(c);
+					if (c == null) {
+						JOptionPane.showMessageDialog(null, "Não existe!");
+					} else {
+						JOptionPane.showMessageDialog(null, "Nome: " + c.getNome());
 					}
-					AbstractButton jTableResultadoPesquisa = null;
-					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
-					*/
+
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-					
-				
-				
-				
-			
-			}});
+
+			}
+			});
 		btnNewButton.setBounds(387, 111, 89, 23);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel_1 = new JLabel("Voltar");
-		lblNewLabel_1.setBounds(704, 488, 46, 14);
-		contentPane.add(lblNewLabel_1);
+		btnNewButton.setBounds(236, 326, 101, 23);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblVoltar = new JLabel("Voltar");
+		lblVoltar.setBounds(708, 501, 36, 14);
+		contentPane.add(lblVoltar);
 		
 		JButton button = new JButton("");
-		button.setIcon(new ImageIcon(Cliente_Consulta.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
-		button.setBounds(738, 484, 46, 23);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cliente_Principal obj=new Cliente_Principal ();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
+		button.setIcon(new ImageIcon(Cliente_Listagem.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
+		button.setBounds(754, 497, 49, 23);
 		contentPane.add(button);
-	}
 
+		}
 }
+

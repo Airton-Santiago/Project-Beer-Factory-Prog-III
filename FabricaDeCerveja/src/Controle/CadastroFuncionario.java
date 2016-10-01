@@ -6,7 +6,7 @@ import Repositorio.IFuncionario;
 
 public class CadastroFuncionario implements IFuncionario {
 
-	private IFuncionario repositorio;
+	private static IFuncionario repositorio;
 
 	@Override
 	public void cadastrar(Funcionario funcionario) {
@@ -36,6 +36,10 @@ public class CadastroFuncionario implements IFuncionario {
 	public void remover(Funcionario f) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public static Funcionario procurar (Funcionario funcionario){
+		return (Funcionario)IFuncionario.procurar(funcionario);
 	}
 
 }

@@ -10,7 +10,7 @@ import Beans.*;
 public class Fachada implements IFachada {
 
 	private static ClienteCadastro cadastroCliente;
-	private IFuncionario cadastroFuncionario;
+	private static IFuncionario cadastroFuncionario;
 	private IGerente cadastroGerente;
 	private IProduto cadastroProduto;
 	private static IFornecedor cadastroFornecedor;
@@ -61,12 +61,6 @@ public class Fachada implements IFachada {
 
 	}
 
-	@Override
-	public Funcionario procurarFuncionario(String cpf) {
-
-		return cadastroFuncionario.procurar(cpf);
-
-	}
 
 	@Override
 	public Cliente procurarCliente(String cpf) {
@@ -152,8 +146,8 @@ public class Fachada implements IFachada {
 
 	}
 
-	public static void removerCliente(Cliente c) {
-		cadastroCliente.remover(c);
+	public static void removerCliente(Cliente c1) {
+		cadastroCliente.remover(c1);
 		
 	}
 
@@ -161,6 +155,7 @@ public class Fachada implements IFachada {
 		
 		return cadastroCliente.procurar(c);
 	}
+	
 
 	@Override
 	public void cadastrarProduto(Venda venda) {
@@ -184,10 +179,7 @@ public class Fachada implements IFachada {
 	      return cadastroCliente.procurar(cliente);
 }
 
-	public static List<Funcionario> procurarFuncionario(Funcionario f) {
-		
-		return (List<Funcionario>) cadastroCliente.procurar(f);
-	}
+	
 
 	public static void removerFuncionario(Funcionario f) {
 		cadastroFornecedor.remover(f);
@@ -200,6 +192,11 @@ public class Fachada implements IFachada {
 		
 	}
 
+public static Funcionario procurarFuncionario(Funcionario funcionario) {
+		
+		return IFuncionario.procurar(funcionario);
+	}
+	
 	
 }
 

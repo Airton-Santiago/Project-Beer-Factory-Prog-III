@@ -91,7 +91,7 @@ public class Funcionario_Excluir extends JFrame {
 				  	dispose();
 				  	//nome e cpf
 				  	try{
-						Funcionario funcionario = new Funcionario(null, null, null, 0);
+						Funcionario funcionario = new Funcionario();
 						if(textField_1.getText().trim().equals("")==false){
 						funcionario.setCpf(textField_1.getText());
 						

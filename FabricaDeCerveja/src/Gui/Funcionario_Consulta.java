@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import Beans.Cliente;
 import Beans.Fornecedor;
 import Beans.Funcionario;
 import Fachada.Fachada;
@@ -32,7 +33,7 @@ public class Funcionario_Consulta extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private List<Funcionario> listaFuncionario;
+	
 
 	/**
 	 * Launch the application.
@@ -101,28 +102,28 @@ public class Funcionario_Consulta extends JFrame {
 				  	dispose();
 				  	//
 				  	try{
-				  	Funcionario f = new Funcionario(null, null, null, 0);
-					if(textField_1.getText().trim().equals("")==false){
-					f.setCpf(textField_1.getText());
-					f.setNome(textField.getText());
+				  		
+				  		//
+						Funcionario f1 = new Funcionario();
+						// if(textField_1.getText().trim().equals("")==false){
+						f1.setCpf(textField_1.getText());
+
+						// }
+
+						f1 = Fachada.procurarFuncionario(f1);
+						
+						if (f1 == null) {
+							JOptionPane.showMessageDialog(null, "Não existe!");
+						} else {
+							JOptionPane.showMessageDialog(null, "Nome: " + f1.getNome());
+						}
+
+					} catch (Exception e1) {
+						e1.printStackTrace();
 					}
-					
-					
-					listaFuncionario = Fachada.procurarFuncionario(f);
-					DefaultTableModel modelo = new DefaultTableModel();
-					modelo.setColumnIdentifiers(new String[]{"CPF", "NOME"});
-					for( Funcionario funcionario : listaFuncionario) {
-					modelo.addRow(new String[]{funcionario.getCpf() + "", funcionario.getNome()});
-					}
-					AbstractButton jTableResultadoPesquisa = null;
-					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
-					} catch(Exception ex){
-						JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-					}
-			}
-				//
-			
-		});
+
+				}
+				});
 		btnNewButton.setIcon(new ImageIcon(Funcionario_Consulta.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		btnNewButton.setBounds(740, 497, 59, 23);
 		contentPane.add(btnNewButton);

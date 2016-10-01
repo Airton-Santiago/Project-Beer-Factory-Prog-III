@@ -26,7 +26,9 @@ public interface IFachada {
 		return null;
 	}
 
-	Funcionario procurarFuncionario(String cpf);
+	static void procurarFuncionario (Funcionario funcionario){
+		return;
+	}
 
 	void procurarProduto(String codigoProduto);
 
@@ -54,17 +56,10 @@ public interface IFachada {
 
 	void removerProduto(String codigoProduto);
 	
-	static void removerFuncionario (Funcionario f) {
-	}
-	
 	static Cliente removerCliente(Cliente c) {
 		return null;
 	}
-	static Funcionario procurarFuncionario(Funcionario f) {
-		return null;
-	}
-
-	void removerProduto(ActionEvent e);
+		void removerProduto(ActionEvent e);
 	
 	
 

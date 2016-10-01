@@ -13,5 +13,10 @@ public interface IFuncionario {
 	void remover(Funcionario f);
 
 	void remover(String cpf);
+	
+	static Funcionario procurar(Funcionario funcionario){
+		return funcionario;
+	
+	}
 
 }

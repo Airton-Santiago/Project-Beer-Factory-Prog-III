@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Beans.Cliente;
+import Controle.CadastroCliente;
 import Fachada.Fachada;
 import Fachada.IFachada;
 
@@ -91,23 +92,28 @@ public class Cliente_Exclusao extends JFrame {
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
 				Cliente_Principal obj=new Cliente_Principal ();
 				obj.setVisible(true);
 				dispose();
 				//
 				try{
-					Cliente c = new Cliente();
+					Cliente cliente = new Cliente();
 					if(textField_1.getText().trim().equals("")==false){
-					c.setCnpj(textField_1.getText());
-					c.setNome(textField.getText());
-					c.setCpf(textField_1.getText());
+					cliente.setCnpj(textField_1.getText());
+					cliente.setNome(textField.getText());
+					cliente.setCpf(textField_1.getText());
+					
+					CadastroCliente cc = new CadastroCliente();
+					Fachada fachada = new Fachada();
+					fachada.cadastrarCliente(cliente);
+					Fachada.removerCliente(cliente);
+					JOptionPane.showMessageDialog(rootPane, "Cliente removido com sucesso.");
 				}
 					
-					Fachada.removerCliente(c);
-					JOptionPane.showMessageDialog(rootPane, "Cliente removido com sucesso.");
 				} catch(NullPointerException e1) {
-					JOptionPane.showInputDialog(rootPane,e1.getMessage());
+					JOptionPane.showInputDialog(rootPane, "Erro, cliente não foi removido!");
 				}
 				
 				//

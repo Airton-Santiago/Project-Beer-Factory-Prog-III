@@ -72,7 +72,7 @@ public class ClienteCadastro<c> implements ICliente {
 		for (int i = 0; i <= this.repositorio.size(); i++) {
 			Cliente c1 = this.repositorio.get(i);
 			if (c.equals(c)) {
-				repositorio.remove(cliente);
+				repositorio.remove(c);
 			}
 
 		}
