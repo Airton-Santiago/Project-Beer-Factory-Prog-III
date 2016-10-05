@@ -72,17 +72,6 @@ public class Funcionario_Principal extends JFrame {
 		btnExcluirFuncionario.setBounds(557, 78, 220, 23);
 		contentPane.add(btnExcluirFuncionario);
 		
-		JButton btnListarFuncionariosCadastrado = new JButton("Listar funcionarios cadastrados");
-		btnListarFuncionariosCadastrado.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Funcionario_Listar obj=new Funcionario_Listar ();
-				obj.setVisible(true);
-			  	dispose();
-			}
-		});
-		btnListarFuncionariosCadastrado.setBounds(74, 303, 220, 23);
-		contentPane.add(btnListarFuncionariosCadastrado);
-		
 		JButton btnConsultarFuncionario = new JButton("Consultar funcionario");
 		btnConsultarFuncionario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -91,18 +80,13 @@ public class Funcionario_Principal extends JFrame {
 				  	dispose();
 			}
 		});
-		btnConsultarFuncionario.setBounds(557, 303, 220, 23);
+		btnConsultarFuncionario.setBounds(300, 304, 220, 23);
 		contentPane.add(btnConsultarFuncionario);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Funcionario_Principal.class.getResource("/Img/AddUser.png")));
 		label.setBounds(109, 112, 120, 120);
 		contentPane.add(label);
-		
-		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(Funcionario_Principal.class.getResource("/Img/Listagem.png")));
-		label_1.setBounds(109, 353, 120, 120);
-		contentPane.add(label_1);
 		
 		JLabel label_2 = new JLabel("");
 		label_2.setIcon(new ImageIcon(Funcionario_Principal.class.getResource("/Img/Excluir.png")));
@@ -111,7 +95,7 @@ public class Funcionario_Principal extends JFrame {
 		
 		JLabel label_3 = new JLabel("");
 		label_3.setIcon(new ImageIcon(Funcionario_Principal.class.getResource("/Img/consulta.png")));
-		label_3.setBounds(597, 363, 120, 120);
+		label_3.setBounds(345, 350, 120, 120);
 		contentPane.add(label_3);
 		
 		JLabel lblNewLabel_1 = new JLabel("Voltar");
@@ -130,10 +114,5 @@ public class Funcionario_Principal extends JFrame {
 		button.setIcon(new ImageIcon(Funcionario_Principal.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(758, 502, 54, 23);
 		contentPane.add(button);
-		
-		JLabel label_4 = new JLabel("");
-		label_4.setIcon(new ImageIcon(Funcionario_Principal.class.getResource("/Img/Layer1.png")));
-		label_4.setBounds(417, 78, 4, 418);
-		contentPane.add(label_4);
 	}
 }

@@ -1,22 +1,27 @@
 package Controle;
 
-import Beans.Funcionario;
-import Repositorio.IFuncionario;
+import java.awt.event.ActionEvent;
+import java.util.List;
 
+import Beans.Cliente;
+import Beans.Fornecedor;
+import Beans.Funcionario;
+import Repositorio.ClienteCadastro;
+import Repositorio.FuncionarioCadastro;
+import Repositorio.ICliente;
+import Repositorio.IFuncionario;
 
 public class CadastroFuncionario implements IFuncionario {
 
-	private static IFuncionario repositorio;
+	private FuncionarioCadastro repositorio;
 
 	@Override
 	public void cadastrar(Funcionario funcionario) {
 		this.repositorio.cadastrar(funcionario);
-
 	}
 
 	@Override
 	public Funcionario procurar(String cpf) {
-
 		return (Funcionario) repositorio.procurar(cpf);
 	}
 
@@ -32,14 +37,33 @@ public class CadastroFuncionario implements IFuncionario {
 
 	}
 
+	
+
 	@Override
-	public void remover(Funcionario f) {
-		// TODO Auto-generated method stub
+	public void remover(Funcionario c) {
+		this.repositorio.remover(c);
 		
 	}
 
-	public static Funcionario procurar (Funcionario funcionario){
-		return (Funcionario)IFuncionario.procurar(funcionario);
+	@Override
+	public void remover(ActionEvent e) {
+		this.repositorio.remover(e);
+		
 	}
 
+	@Override
+	public List<Fornecedor> procurar(Fornecedor f) {
+		
+		return (List<Fornecedor>)repositorio.procurar(f);
+	}
+
+	
+
+	@Override
+	public Funcionario procurar(Funcionario f) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

@@ -79,16 +79,16 @@ public class Funcionario_Consulta extends JFrame {
 		JButton btnConsulta = new JButton("Consulta");
 		btnConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try{
-			  		
-			  		Funcionario f1 = new Funcionario();
-					f1.setCpf(textField_1.getText());
-					f1 = Fachada.procurarFuncionario(f1);
+				try {
 					
-					if (f1 == null) {
+					Cliente c = new Cliente();
+				
+					c.setCpf(textField_1.getText());
+					c = Fachada.procurarCliente(c);
+					if (c == null) {
 						JOptionPane.showMessageDialog(null, "Não existe!");
 					} else {
-						JOptionPane.showMessageDialog(null, "Nome: " + f1.getNome());
+						JOptionPane.showMessageDialog(null, "Nome: " + c.getNome() + "   Endereço: " + c.getEndereco());
 					}
 
 				} catch (Exception e1) {

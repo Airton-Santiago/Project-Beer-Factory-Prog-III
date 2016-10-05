@@ -7,8 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Beans.Cliente;
 import Beans.Estoque;
 import Beans.Funcionario;
+import Controle.CadastroCliente;
 import Fachada.Fachada;
 import Fachada.IFachada;
 
@@ -73,19 +75,24 @@ public class Funcionario_Excluir extends JFrame {
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			    
-			  	try{
-					Funcionario funcionario = new Funcionario();
+				try{
+					Cliente cliente = new Cliente();
 					if(textField_1.getText().trim().equals("")==false){
-					funcionario.setCpf(textField_1.getText());
+					cliente.setCnpj(textField_1.getText());
 					
+					cliente.setCpf(textField_1.getText());
+					
+					CadastroCliente cc = new CadastroCliente();
+					Fachada fachada = new Fachada();
+					fachada.cadastrarCliente(cliente);
+					Fachada.removerCliente(cliente);
+					JOptionPane.showMessageDialog(rootPane, "Funcionario removido!");
 				}
-					Funcionario f = listaFuncionario();
-					Fachada fachada;
-					Fachada.removerFuncionario(f);
-					JOptionPane.showMessageDialog(rootPane, "Funcionario removido do sistema.");
-				} catch(Exception ex) {
-					JOptionPane.showMessageDialog(rootPane,"Erro ao excluir!");
+					
+				} catch(NullPointerException e1) {
+					JOptionPane.showInputDialog(rootPane, "Erro, tente novamente!");
 				}
+
 			  	//
 		}
 

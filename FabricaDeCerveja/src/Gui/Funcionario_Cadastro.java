@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Beans.Cliente;
 import Beans.Funcionario;
 import Controle.CadastroCliente;
 import Controle.CadastroFuncionario;
@@ -99,24 +100,26 @@ public class Funcionario_Cadastro extends JFrame {
 
 			public void actionPerformed(ActionEvent arg0) {
 				
-				try {
+					try {
 					
-					Funcionario funcionario = new Funcionario() ;
-					funcionario.setNome(textField.getText());
-					funcionario.setCpf(textField_1.getText());
-					funcionario.setEndereco(textField_2.getText());
+					Cliente cliente = new Cliente() ;
+					cliente.setNome(textField.getText());
+					cliente.setCpf(textField_1.getText());
+					cliente.setEndereco(textField_2.getText());
 					
-                    CadastroFuncionario cf = new CadastroFuncionario();
+					CadastroCliente cc = new CadastroCliente();
 					
 					Fachada fachada = new Fachada();
 					
-					fachada.cadastrarFuncionario(funcionario);
+					fachada.cadastrarCliente(cliente);
 					
-					JOptionPane.showMessageDialog(rootPane, "Funcionário cadastrado com sucesso!");
-					
-					
-				}	catch (Exception e){
-					JOptionPane.showMessageDialog(rootPane, "Erro, não foi possível cadastrar, tente novamente!");
+						JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado!");
+						textField.setText("");
+						textField_1.setText("");
+						textField_2.setText("");	
+
+				}	catch (Exception ex){
+					JOptionPane.showMessageDialog(rootPane, "Erro de cadastro!");
 					
 					textField.setText("");
 					textField_1.setText("");

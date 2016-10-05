@@ -60,17 +60,6 @@ public class Cliente_Principal extends JFrame {
 		btnCadastrarCliente.setBounds(69, 62, 210, 23);
 		contentPane.add(btnCadastrarCliente);
 		
-		JButton btnNewButton = new JButton("Listar clientes cadastrados");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Cliente_Listagem obj=new Cliente_Listagem () ;
-				obj.setVisible(true);
-				dispose();
-			}
-		});
-		btnNewButton.setBounds(69, 278, 210, 23);
-		contentPane.add(btnNewButton);
-		
 		JButton btnNewButton_1 = new JButton("Excluir cliente");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -90,28 +79,18 @@ public class Cliente_Principal extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_2.setBounds(544, 278, 210, 23);
+		btnNewButton_2.setBounds(301, 283, 210, 23);
 		contentPane.add(btnNewButton_2);
-		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(Cliente_Principal.class.getResource("/Img/Listagem.png")));
-		label.setBounds(109, 334, 120, 120);
-		contentPane.add(label);
 		
 		JLabel label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(Cliente_Principal.class.getResource("/Img/consulta.png")));
-		label_1.setBounds(594, 334, 120, 120);
+		label_1.setBounds(347, 342, 120, 120);
 		contentPane.add(label_1);
 		
 		JLabel label_2 = new JLabel("");
 		label_2.setIcon(new ImageIcon(Cliente_Principal.class.getResource("/Img/Excluir.png")));
 		label_2.setBounds(594, 96, 120, 120);
 		contentPane.add(label_2);
-		
-		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon(Cliente_Principal.class.getResource("/Img/Layer1.png")));
-		label_3.setBounds(414, 62, 4, 418);
-		contentPane.add(label_3);
 		
 		JLabel lblVoltar = new JLabel("Voltar");
 		lblVoltar.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));

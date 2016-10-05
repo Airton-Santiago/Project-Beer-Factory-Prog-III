@@ -7,8 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Beans.Cliente;
 import Beans.Fornecedor;
 import Beans.Funcionario;
+import Controle.CadastroCliente;
 import Fachada.Fachada;
 import Fachada.IFachada;
 
@@ -124,27 +126,29 @@ public class Fornecedor_Cadastro extends JFrame {
 				//nome>cnpj>endereco>produto>qnt>valor
 				try {
 					
-					Fornecedor fornecedor = new Fornecedor(null, null, null, null, 0, 0) ;
-					fornecedor.setNome(textField.getText());
-					fornecedor.setCnpj(textField_1.getText());
-					fornecedor.setEndereco(textField_2.getText());
-					fornecedor.setProduto_fornecido(textField_3.getText());
-					fornecedor.setQuantidade_produto(textField_4.getWidth());
-					fornecedor.setValor_servico(textField_4.getWidth());
+					Cliente cliente = new Cliente() ;
+					cliente.setNome(textField.getText());
+					cliente.setCpf(textField_1.getText());
+					cliente.setEndereco(textField_2.getText());
 					
-					Fachada.cadastrarFornecedor(fornecedor);
+					CadastroCliente cc = new CadastroCliente();
 					
+					Fachada fachada = new Fachada();
 					
+					fachada.cadastrarCliente(cliente);
+					
+						JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
+						textField.setText("");
+						textField_1.setText("");
+						textField_2.setText("");	
+
 				}	catch (Exception ex){
-					JOptionPane.showMessageDialog(rootPane, "Funcionario cadastrado com sucesso!");
+					JOptionPane.showMessageDialog(rootPane, "Erro de cadastro!");
+					
 					textField.setText("");
 					textField_1.setText("");
 					textField_2.setText("");
-					textField_3.setText("");
-					textField_4.setText("");
-					textField_5.setText("");
 				}
-				//
 				
 				
 			}

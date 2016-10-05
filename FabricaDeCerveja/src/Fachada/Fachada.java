@@ -155,6 +155,10 @@ public class Fachada implements IFachada {
 		
 		return cadastroCliente.procurar(c);
 	}
+public static  Funcionario procurarFuncionario(Funcionario c) {
+		
+		return cadastroFuncionario.procurar(c);
+	}
 	
 
 	@Override
@@ -192,11 +196,7 @@ public class Fachada implements IFachada {
 		
 	}
 
-public static Funcionario procurarFuncionario(Funcionario funcionario) {
-		
-		return IFuncionario.procurar(funcionario);
-	}
-	
+
 	
 }
 
