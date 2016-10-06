@@ -18,4 +18,6 @@ public interface IFornecedor {
 
 	void remover(Funcionario f);
 
+	Fornecedor procurar(Fornecedor f);
+
 }

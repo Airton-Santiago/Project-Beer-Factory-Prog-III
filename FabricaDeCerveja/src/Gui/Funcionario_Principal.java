@@ -80,8 +80,19 @@ public class Funcionario_Principal extends JFrame {
 				  	dispose();
 			}
 		});
-		btnConsultarFuncionario.setBounds(300, 304, 220, 23);
+		btnConsultarFuncionario.setBounds(557, 78, 220, 23);
 		contentPane.add(btnConsultarFuncionario);
+		
+		JButton btnAlterarFuncionario = new JButton("Alterar Funcionario");
+		btnAlterarFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Funcionario_Alterar obj=new Funcionario_Alterar ();
+				obj.setVisible(true);
+				  	dispose();
+			}
+		});
+		btnAlterarFuncionario.setBounds(557, 78, 220, 23);
+		contentPane.add(btnAlterarFuncionario);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Funcionario_Principal.class.getResource("/Img/AddUser.png")));
@@ -95,8 +106,13 @@ public class Funcionario_Principal extends JFrame {
 		
 		JLabel label_3 = new JLabel("");
 		label_3.setIcon(new ImageIcon(Funcionario_Principal.class.getResource("/Img/consulta.png")));
-		label_3.setBounds(345, 350, 120, 120);
+		label_3.setBounds(109, 375, 120, 120);
 		contentPane.add(label_3);
+		
+		JLabel label_4 = new JLabel("");
+		label_4.setIcon(new ImageIcon(Funcionario_Alterar.class.getResource("/Img/Crystal_128_reload.png")));
+		label_4.setBounds(587, 365, 130, 130);
+		contentPane.add(label_4);
 		
 		JLabel lblNewLabel_1 = new JLabel("Voltar");
 		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 13));
@@ -114,5 +130,27 @@ public class Funcionario_Principal extends JFrame {
 		button.setIcon(new ImageIcon(Funcionario_Principal.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(758, 502, 54, 23);
 		contentPane.add(button);
+		
+		JButton btnAtualizarFuncionario = new JButton("Atualizar funcionario");
+		btnAtualizarFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Funcionario_Alterar obj = new Funcionario_Alterar();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
+		btnAtualizarFuncionario.setBounds(540, 328, 220, 23);
+		contentPane.add(btnAtualizarFuncionario);
+		
+		JButton btnConsultarFuncionario_1 = new JButton("Consultar Funcionario");
+		btnConsultarFuncionario_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Funcionario_Consulta obj = new Funcionario_Consulta();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
+		btnConsultarFuncionario_1.setBounds(93, 328, 170, 23);
+		contentPane.add(btnConsultarFuncionario_1);
 	}
 }

@@ -8,14 +8,32 @@ public class Venda extends Pedido {
 	private String produto;
 	private String NomeCliente;
 	private Date dataVenda;
+	private String codigoDoPedido;
+	private double valor_pedido;
 
-	public Venda(double valor, String codigoDoPedido, String produto, String NomeCliente, Date dataVenda,
-			double valor_pedido) {
-		super(codigoDoPedido, valor_pedido);
+	public String getCodigoDoPedido() {
+		return codigoDoPedido;
+	}
+
+	public void setCodigoDoPedido(String codigoDoPedido) {
+		this.codigoDoPedido = codigoDoPedido;
+	}
+
+	public double getValor_pedido() {
+		return valor_pedido;
+	}
+
+	public void setValor_pedido(double valor_pedido) {
+		this.valor_pedido = valor_pedido;
+	}
+
+	public Venda() {
 		this.valor = valor;
 		this.dataVenda = dataVenda;
 		this.NomeCliente = NomeCliente;
 		this.produto = produto;
+		this.codigoDoPedido= codigoDoPedido;
+		this.valor_pedido = valor_pedido;
 
 	}
 

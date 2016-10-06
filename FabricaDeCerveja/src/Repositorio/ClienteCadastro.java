@@ -105,4 +105,9 @@ public class ClienteCadastro<c> implements ICliente {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public void listar(Cliente cliente2) {
+		// TODO Auto-generated method stub
+		
+	}
 }

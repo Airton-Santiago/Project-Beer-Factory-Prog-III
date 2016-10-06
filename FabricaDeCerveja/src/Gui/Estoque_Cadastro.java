@@ -7,8 +7,10 @@ import javax.swing.JInternalFrame;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 
+import Beans.Cliente;
 import Beans.Estoque;
 import Beans.Funcionario;
+import Controle.CadastroCliente;
 import Fachada.Fachada;
 import Fachada.IFachada;
 
@@ -19,7 +21,11 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextPane;
+import javax.swing.JTextArea;
 
 public class Estoque_Cadastro extends JInternalFrame {
 	private JTextField textField;
@@ -49,42 +55,60 @@ public class Estoque_Cadastro extends JInternalFrame {
 		setClosable(true);
 		setBounds(100, 100, 480, 360);
 		getContentPane().setLayout(null);
-		
-		JLabel lblNomeDoProduto = new JLabel("Nome do Produto: ");
+
+		JLabel lblNomeDoProduto = new JLabel("Codigo do produto:");
 		lblNomeDoProduto.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblNomeDoProduto.setBounds(80, 133, 109, 14);
+		lblNomeDoProduto.setBounds(64, 107, 123, 35);
 		getContentPane().add(lblNomeDoProduto);
-		
-		JLabel lblQuantidade = new JLabel("Quantidade: ");
-		lblQuantidade.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblQuantidade.setBounds(80, 163, 89, 14);
-		getContentPane().add(lblQuantidade);
-		
+
 		textField = new JTextField();
-		textField.setBounds(199, 131, 123, 20);
+		textField.setBounds(199, 115, 123, 20);
 		getContentPane().add(textField);
 		textField.setColumns(10);
+
+		JButton btnVizualizar = new JButton("Vizualizar");
+		btnVizualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+
+					Cliente cliente = new Cliente();
+					cliente.setNome(textField.getText());
+					cliente.setQuantidadeEmEstoque(textField_1.getText());
+					
+
+					CadastroCliente cc = new CadastroCliente();
+
+					Fachada fachada = new Fachada();
+
+					fachada.cadastrarCliente(cliente);
+
+					JOptionPane.showMessageDialog(null, " Nome:" + cliente.getNome() + " Quantidade: " + cliente.getQuantidadeEmEstoque());
+					textField.setText("");
+					textField_1.setText("");
+					
+
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(null, "Erro!");
+					dispose();
+				}
+			}
+		});
+		btnVizualizar.setBounds(360, 277, 89, 23);
+		getContentPane().add(btnVizualizar);
+
+		JLabel lblVizualizarProdutoCadastrado = new JLabel(" Produto Cadastrado");
+		lblVizualizarProdutoCadastrado.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
+		lblVizualizarProdutoCadastrado.setBounds(15, 30, 324, 35);
+		getContentPane().add(lblVizualizarProdutoCadastrado);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(199, 161, 123, 20);
+		textField_1.setBounds(199, 173, 123, 20);
 		getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnAdicionar = new JButton("Adicionar");
-		btnAdicionar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			
-				dispose();
-			}
-		});
-		btnAdicionar.setBounds(299, 215, 89, 23);
-		getContentPane().add(btnAdicionar);
-		
-		JLabel lblAdicionarNovoProduto = new JLabel("Adicionar novo produto");
-		lblAdicionarNovoProduto.setFont(new Font("Trebuchet MS", Font.PLAIN, 15));
-		lblAdicionarNovoProduto.setBounds(10, 24, 184, 29);
-		getContentPane().add(lblAdicionarNovoProduto);
+		JLabel lblQuantidade = new JLabel("Quantidade:");
+		lblQuantidade.setBounds(64, 146, 162, 74);
+		getContentPane().add(lblQuantidade);
 
 	}
 }

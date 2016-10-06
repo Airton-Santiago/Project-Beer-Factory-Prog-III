@@ -33,7 +33,13 @@ public class CadastroFornecedor implements IFornecedor {
 	@Override
 	public void remover(Funcionario f) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public Fornecedor procurar(Fornecedor f) {
+
+		return (Fornecedor) repositorio.procurar(f);
 	}
 
 }

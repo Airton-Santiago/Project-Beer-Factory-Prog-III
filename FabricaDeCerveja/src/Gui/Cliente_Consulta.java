@@ -88,7 +88,7 @@ public class Cliente_Consulta extends JFrame {
 				dispose();
 			}
 		});
-		button.setIcon(new ImageIcon(Cliente_Listagem.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
+		button.setIcon(new ImageIcon(Cliente_Alterar.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		button.setBounds(754, 497, 49, 23);
 		contentPane.add(button);
 		

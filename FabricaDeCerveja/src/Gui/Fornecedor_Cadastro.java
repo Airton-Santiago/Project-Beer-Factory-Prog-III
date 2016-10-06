@@ -137,7 +137,7 @@ public class Fornecedor_Cadastro extends JFrame {
 					
 					fachada.cadastrarCliente(cliente);
 					
-						JOptionPane.showMessageDialog(rootPane, "Cliente cadastrado com sucesso!");
+						JOptionPane.showMessageDialog(rootPane, "Cadastrado com sucesso!");
 						textField.setText("");
 						textField_1.setText("");
 						textField_2.setText("");	

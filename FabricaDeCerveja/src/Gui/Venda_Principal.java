@@ -21,6 +21,8 @@ import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class Venda_Principal extends JFrame {
 
@@ -48,30 +50,6 @@ public class Venda_Principal extends JFrame {
 	public Venda_Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 841, 569);
-		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
-		
-		JMenu mnOpes = new JMenu("Op\u00E7\u00F5es");
-		menuBar.add(mnOpes);
-		
-		JMenuItem mntmNovaVenda = new JMenuItem("Nova Venda");
-		
-		mnOpes.add(mntmNovaVenda);
-		
-		JMenuItem mntmRemoverVenda = new JMenuItem("Remover Venda");
-		
-		mnOpes.add(mntmRemoverVenda);
-		
-		JMenuItem mntmVoltar = new JMenuItem("Voltar");
-		mntmVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Financeiro_Principal obj=new Financeiro_Principal() ;
-				obj.setVisible(true);
-				dispose();
-			}
-		});
-		mnOpes.add(mntmVoltar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -81,20 +59,29 @@ public class Venda_Principal extends JFrame {
 		desktopPane.setBackground(new Color(255, 255, 255));
 		contentPane.add(desktopPane, BorderLayout.CENTER);
 		
-		JLabel lblVendasCadastradas = new JLabel("Vendas Cadastradas");
-		lblVendasCadastradas.setFont(new Font("Trebuchet MS", Font.PLAIN, 17));
-		lblVendasCadastradas.setBounds(20, 23, 182, 49);
-		desktopPane.add(lblVendasCadastradas);
+		JMenuItem mntmNovaVenda = new JMenuItem("Nova Venda");
+		mntmNovaVenda.setBounds(217, 216, 127, 22);
+		desktopPane.add(mntmNovaVenda);
 		
-		JLabel lblLucro = new JLabel("Lucro:");
-		lblLucro.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblLucro.setBounds(20, 462, 46, 14);
-		desktopPane.add(lblLucro);
+		JMenuItem mntmRemoverVenda = new JMenuItem("Remover Venda");
+		mntmRemoverVenda.setBounds(446, 216, 127, 22);
+		desktopPane.add(mntmRemoverVenda);
 		
-		JLabel lblDispesas = new JLabel("Dispesas: ");
-		lblDispesas.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
-		lblDispesas.setBounds(670, 462, 75, 14);
-		desktopPane.add(lblDispesas);
+		JMenuItem mntmVoltar = new JMenuItem("Voltar");
+		mntmVoltar.setBounds(657, 476, 75, 22);
+		desktopPane.add(mntmVoltar);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(Venda_Principal.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
+		label.setBounds(742, 467, 50, 42);
+		desktopPane.add(label);
+		mntmVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Financeiro_Principal obj=new Financeiro_Principal() ;
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		mntmRemoverVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Venda_Excluir est = new Venda_Excluir();

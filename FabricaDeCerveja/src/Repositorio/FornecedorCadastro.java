@@ -59,4 +59,15 @@ public class FornecedorCadastro<f> implements IFornecedor {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public Fornecedor procurar(Fornecedor f) {
+		for (int i = 0; i < repositorio.size(); i++) {
+			Fornecedor f1 = repositorio.get(i);
+			if (f.getCnpj().equals(f)) {
+				return f1;
+			}
+		}
+		return null;
+	}
 }

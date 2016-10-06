@@ -8,7 +8,10 @@ public class Cliente  {
 	
 	private String nome;
 	
+
 	private String endereco;
+	
+	private String quantidadeEmEstoque;
 	
 	public Cliente() {
 	this.cnpj = cnpj;
@@ -18,6 +21,14 @@ public class Cliente  {
 		
 	}
 	
+	public String getQuantidadeEmEstoque() {
+		return quantidadeEmEstoque;
+	}
+	
+	
+	public void setQuantidadeEmEstoque(String quantidadeEmEstoque) {
+		this.quantidadeEmEstoque = quantidadeEmEstoque;
+	}
 
 	public String getCpf() {
 		return cpf;

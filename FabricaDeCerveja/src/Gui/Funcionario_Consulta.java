@@ -1,6 +1,7 @@
 package Gui;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -32,8 +33,8 @@ public class Funcionario_Consulta extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField_1;
+	private List<Funcionario> listaFuncionario;
 	
-
 	/**
 	 * Launch the application.
 	 */
@@ -62,7 +63,7 @@ public class Funcionario_Consulta extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Filtros da pesquisa");
+		JLabel lblNewLabel = new JLabel("Consultar funcionario");
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 13));
 		lblNewLabel.setBounds(24, 22, 141, 14);
 		contentPane.add(lblNewLabel);
@@ -76,51 +77,45 @@ public class Funcionario_Consulta extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnConsulta = new JButton("Consulta");
-		btnConsulta.addActionListener(new ActionListener() {
+		JLabel lblNewLabel1 = new JLabel("Voltar ");
+		lblNewLabel1.setBounds(701, 501, 46, 14);
+		contentPane.add(lblNewLabel1);
+		
+		
+		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					
-					Cliente c = new Cliente();
-				
-					c.setCpf(textField_1.getText());
-					c = Fachada.procurarCliente(c);
-					if (c == null) {
-						JOptionPane.showMessageDialog(null, "Não existe!");
-					} else {
-						JOptionPane.showMessageDialog(null, "Nome: " + c.getNome() + "   Endereço: " + c.getEndereco());
-					}
-
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
+				Funcionario_Principal obj=new Funcionario_Principal ();
+				obj.setVisible(true);
+				dispose();
 			}
 		});
-		btnConsulta.setBounds(312, 283, 89, 23);
-		contentPane.add(btnConsulta);
+		button.setIcon(new ImageIcon(Cliente_Alterar.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
+		button.setBounds(754, 497, 49, 23);
+		contentPane.add(button);
 		
-		JLabel lblNewLabel_1 = new JLabel("Voltar ");
-		lblNewLabel_1.setBounds(701, 501, 46, 14);
-		contentPane.add(lblNewLabel_1);
-		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				    Funcionario_Principal obj=new Funcionario_Principal ();
-					obj.setVisible(true);
-				  	dispose();
-				 
-				  	
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addActionListener(new ActionListener() {
+			
+				public void actionPerformed(ActionEvent e) {
+					try {
+						
+						Cliente c = new Cliente();
+					
+						c.setCpf(textField_1.getText());
+						c = Fachada.procurarCliente(c);
+						if (c == null) {
+							JOptionPane.showMessageDialog(null, "Não existe!");
+						} else {
+							JOptionPane.showMessageDialog(null, "Nome: " + c.getNome() + "  Endereço: " + c.getEndereco());
+						}
 
-				}
-				});
-		btnNewButton.setIcon(new ImageIcon(Funcionario_Consulta.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
-		btnNewButton.setBounds(740, 497, 59, 23);
-		contentPane.add(btnNewButton);
-		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(Funcionario_Consulta.class.getResource("/Img/consulta.png")));
-		label.setBounds(555, 197, 150, 150);
-		contentPane.add(label);
+					} catch (Exception e1) {
+					e1.printStackTrace();
+					}
+			}
+		});
+		btnConsultar.setBounds(312, 260, 89, 23);
+		contentPane.add(btnConsultar);
 	}
 }

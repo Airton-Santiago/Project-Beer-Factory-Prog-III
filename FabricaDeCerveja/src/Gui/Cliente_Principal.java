@@ -79,18 +79,24 @@ public class Cliente_Principal extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_2.setBounds(301, 283, 210, 23);
+		btnNewButton_2.setBounds(69, 311, 210, 23);
 		contentPane.add(btnNewButton_2);
 		
 		JLabel label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(Cliente_Principal.class.getResource("/Img/consulta.png")));
-		label_1.setBounds(347, 342, 120, 120);
+		label_1.setBounds(109, 375, 120, 120);
 		contentPane.add(label_1);
 		
 		JLabel label_2 = new JLabel("");
 		label_2.setIcon(new ImageIcon(Cliente_Principal.class.getResource("/Img/Excluir.png")));
 		label_2.setBounds(594, 96, 120, 120);
 		contentPane.add(label_2);
+		
+
+		JLabel label_4 = new JLabel("");
+		label_4.setIcon(new ImageIcon(Tela_Principal.class.getResource("/Img/Crystal_128_reload.png")));
+		label_4.setBounds(584, 365, 130, 130);
+		contentPane.add(label_4);
 		
 		JLabel lblVoltar = new JLabel("Voltar");
 		lblVoltar.setFont(new Font("Trebuchet MS", Font.PLAIN, 12));
@@ -113,6 +119,21 @@ public class Cliente_Principal extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(Cliente_Principal.class.getResource("/Img/CadastroCliente.png")));
 		lblNewLabel.setBounds(109, 96, 150, 150);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnAlterarCliente = new JButton("Alterar cliente");
+		btnAlterarCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cliente_Alterar obj = new Cliente_Alterar();
+				obj.setVisible(true);
+				dispose();
+			}
+		});
+		btnAlterarCliente.setBounds(544, 311, 210, 23);
+		contentPane.add(btnAlterarCliente);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(Cliente_Principal.class.getResource("/Img/CadastroCliente.png")));
+		label.setBounds(414, 41, 3, 442);
+		contentPane.add(label);
 	}
-
 }

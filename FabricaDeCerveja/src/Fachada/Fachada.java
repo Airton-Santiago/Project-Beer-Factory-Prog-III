@@ -1,4 +1,5 @@
 package Fachada;
+
 import Controle.*;
 import Repositorio.*;
 
@@ -15,13 +16,14 @@ public class Fachada implements IFachada {
 	private IProduto cadastroProduto;
 	private static IFornecedor cadastroFornecedor;
 	private static IFachada fachada;
+	private static IVenda cadastroVenda;
 
 	public static IFachada getInstance() {
 		if (fachada == null) {
 			fachada = new Fachada();
 		}
 		return fachada;
-	
+
 	}
 
 	public Fachada() {
@@ -30,6 +32,7 @@ public class Fachada implements IFachada {
 		this.cadastroFornecedor = new CadastroFornecedor();
 		this.cadastroGerente = new CadastroGerente();
 		this.cadastroProduto = new CadastroProduto();
+		this.cadastroVenda = new CadastroVenda();
 
 	}
 
@@ -60,7 +63,6 @@ public class Fachada implements IFachada {
 		cadastroProduto.cadastrar(produto);
 
 	}
-
 
 	@Override
 	public Cliente procurarCliente(String cpf) {
@@ -148,55 +150,65 @@ public class Fachada implements IFachada {
 
 	public static void removerCliente(Cliente c1) {
 		cadastroCliente.remover(c1);
-		
+
 	}
 
-	public static  Cliente procurarCliente(Cliente c) {
-		
+	public static Cliente procurarCliente(Cliente c) {
+
 		return cadastroCliente.procurar(c);
 	}
-public static  Funcionario procurarFuncionario(Funcionario c) {
-		
+
+	public static Funcionario procurarFuncionario(Funcionario c) {
+
 		return cadastroFuncionario.procurar(c);
 	}
-	
 
 	@Override
 	public void cadastrarProduto(Venda venda) {
 		cadastroProduto.cadastrar(venda);
-		
+
 	}
 
 	@Override
 	public void removerProduto(ActionEvent e) {
 		cadastroCliente.remover(e);
-		
+
 	}
 
-	public static List<Fornecedor> procurarFornecedor(Fornecedor f) {
-		
-		      return cadastroCliente.procurar(f);
+	public static Fornecedor procurarFornecedor(Fornecedor f) {
+
+		return cadastroFornecedor.procurar(f);
 	}
-	
+
 	public static Cliente procurarCliente1(Cliente cliente) {
-		
-	      return cadastroCliente.procurar(cliente);
-}
 
-	
+		return cadastroCliente.procurar(cliente);
+	}
 
 	public static void removerFuncionario(Funcionario f) {
 		cadastroFornecedor.remover(f);
-		
+
 	}
 
 	@Override
 	public void removerProduto(Venda venda) {
 		cadastroProduto.remover(cadastroProduto);
-		
+
 	}
 
+	public void cadastrarVenda(Venda venda) {
+		cadastroVenda.cadastrar(venda);
 
-	
+	}
+
+	public static void removerVenda(Venda venda) {
+		cadastroVenda.remover(venda);
+
+	}
+
+	public static void listarCliente(Cliente cliente) {
+		cadastroCliente.listar(cliente);
+
+	}
+
 }
-

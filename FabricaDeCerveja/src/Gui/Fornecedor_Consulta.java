@@ -89,27 +89,25 @@ public class Fornecedor_Consulta extends JFrame {
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-try{
+
+				try {
 					
-					Fornecedor f = new Fornecedor();
-					if(textField_1.getText().trim().equals("")==false){
-					f.setCnpj(textField_1.getText());
-					}
-					f.setNome(textField.getText());
-					listaFornecedor = Fachada.procurarFornecedor(f);
-					DefaultTableModel modelo = new DefaultTableModel();
-					modelo.setColumnIdentifiers(new String[]{"CNPJ", "NOME"});
-					for( Fornecedor fornecedor : listaFornecedor) {
-					modelo.addRow(new String[]{fornecedor.getCnpj() + "", fornecedor.getNome()});
-					}
-					AbstractButton jTableResultadoPesquisa = null;
-					jTableResultadoPesquisa.setModel((ButtonModel) modelo);
-					} catch (Exception ex) {
-						JOptionPane.showMessageDialog(rootPane, "Erro!");
-					}
+					Cliente c = new Cliente();
 				
+					c.setCpf(textField_1.getText());
+					c = Fachada.procurarCliente(c);
+					if (c == null) {
+						JOptionPane.showMessageDialog(null, "Não existe!");
+					} else {
+						JOptionPane.showMessageDialog(null, "Nome: " + c.getNome() + "  Endereço: " + c.getEndereco());
+					}
+
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+
 			}
-		});
+			});
 		btnConsultar.setBounds(338, 112, 89, 23);
 		contentPane.add(btnConsultar);
 		

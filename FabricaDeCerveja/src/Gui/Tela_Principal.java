@@ -66,9 +66,8 @@ public class Tela_Principal extends JFrame {
 		JButton btnNewButton = new JButton("Cliente");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				    Cliente_Principal obj=new Cliente_Principal ();
+				    Cliente_Principal obj=new Cliente_Principal();
 					obj.setVisible(true);
-				  	dispose();
 			}
 		});
 		btnNewButton.setBounds(250, 224, 100, 23);
@@ -113,6 +112,7 @@ public class Tela_Principal extends JFrame {
 		button.setBounds(761, 497, 54, 23);
 		contentPane.add(button);
 		
+		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Tela_Principal.class.getResource("/Img/CadastroFuncionario.png")));
 		label.setBounds(30, 278, 150, 150);
@@ -137,5 +137,6 @@ public class Tela_Principal extends JFrame {
 		label_3.setIcon(new ImageIcon(Tela_Principal.class.getResource("/Img/Cadastrofornecedores.png")));
 		label_3.setBounds(618, 278, 150, 150);
 		contentPane.add(label_3);
+		
 	}
 }
